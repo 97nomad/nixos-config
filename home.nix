@@ -39,6 +39,7 @@ in
 
     file = {
       ".config/i3status/config".source = "/home/nommy/nixos/i3status";
+      ".emacs".source = "/home/nommy/nixos/.emacs";
     };
 
     keyboard = {
@@ -104,10 +105,19 @@ in
       };
     };
 
+    emacs = {
+      enable = true;
+      extraPackages = epkgs: with epkgs; [
+        magit company nix-mode rainbow-delimiters
+      ];
+    };
+
     home-manager.enable = true;
   };
 
   services = {
+    emacs.enable = true;
+
     screen-locker = {
       enable = true;
       lockCmd = "xsecurelock";
