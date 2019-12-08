@@ -49,3 +49,7 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (show-paren-mode 1)
 (electric-pair-mode 1)
+
+;; Штуки для гита
+(setq smerge-command-prefix "\C-cv")
+(global-set-key (kbd "C-c v m") 'magit-status)
