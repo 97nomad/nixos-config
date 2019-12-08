@@ -32,6 +32,8 @@ in
       git direnv gnupg pass vim i3status
       htop gksu
 
+      unstable.jetbrains.idea-community
+
       (import (fetchGit "https://github.com/haslersn/fish-nix-shell"))
     ];
 
