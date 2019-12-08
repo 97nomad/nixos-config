@@ -17,7 +17,6 @@
 
   ## Network
   networking.hostName = "neko-maid";
-  networking.enableIPv6 = false;
   networking.networkmanager = {
     enable = true;
 
