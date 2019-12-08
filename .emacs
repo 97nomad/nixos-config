@@ -8,7 +8,7 @@
  '(initial-buffer-choice "~")
  '(package-selected-packages
    (quote
-    (magit company nix-mode rainbow-delimeters))))
+    (magit company nix-mode rainbow-delimeters amx))))
 (custom-set-faces)
 
 ;; disable alarm
@@ -53,3 +53,6 @@
 ;; Штуки для гита
 (setq smerge-command-prefix "\C-cv")
 (global-set-key (kbd "C-c v m") 'magit-status)
+
+;; Красивые штуки для M-x
+(amx-mode 1)

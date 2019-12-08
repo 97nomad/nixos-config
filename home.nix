@@ -109,6 +109,7 @@ in
       enable = true;
       extraPackages = epkgs: with epkgs; [
         magit company nix-mode rainbow-delimiters
+        amx
       ];
     };
 
