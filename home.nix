@@ -17,7 +17,7 @@ in
 
   home = {
     packages = with pkgs; [
-      chromium unstable.tdesktop
+      chromium unstable.tdesktop discord
 
       libreoffice flameshot blueman
 
