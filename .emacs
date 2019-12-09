@@ -4,11 +4,10 @@
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(blink-cursor-mode nil)
- '(custom-enabled-themes (quote (tango-dark)))
  '(initial-buffer-choice "~")
  '(package-selected-packages
    (quote
-    (magit company nix-mode rainbow-delimeters amx))))
+    (magit company nix-mode rainbow-delimeters amx dracula-theme))))
 (custom-set-faces)
 
 ;; disable alarm
@@ -22,6 +21,14 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
+
+;; Тема и шрифты
+(load-theme 'dracula t)
+(set-face-attribute 'default nil
+		    :family "Fira Code"
+		    :height 100
+		    :weight 'normal
+		    :width 'normal)
 
 ;; MELPA
 (require 'package)
