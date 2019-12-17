@@ -7,7 +7,7 @@
  '(initial-buffer-choice "~")
  '(package-selected-packages
    (quote
-    (magit company nix-mode rainbow-delimeters amx dracula-theme lsp-haskell))))
+    (magit company nix-mode rainbow-delimeters dracula-theme helm lsp-haskell))))
 (custom-set-faces)
 
 ;; disable alarm
@@ -61,8 +61,10 @@
 (setq smerge-command-prefix "\C-cv")
 (global-set-key (kbd "C-c v m") 'magit-status)
 
-;; Красивые штуки для M-x
-(amx-mode 1)
+;; Helm штуки
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 
 ;; Haskell штуки
 (add-hook 'haskell-mode-hook #'lsp)
