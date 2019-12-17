@@ -20,14 +20,19 @@ in
     packages = with pkgs; [
       chromium unstable.tdesktop discord
 
-      libreoffice flameshot blueman
+      flameshot blueman
 
+      # viewers and editors
+      libreoffice feh vlc zathura
+
+      # gnome stuff
       gnome3.nautilus gnome3.file-roller 
       gnome3.dconf
 
       arandr rofi rofi-pass xsecurelock
       xautolock xdotool pwgen
 
+      # fonts
       noto-fonts fira-code
 
       git direnv gnupg pass vim i3status
