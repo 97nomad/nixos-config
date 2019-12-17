@@ -4,6 +4,7 @@ let
   unstableTarball =
     fetchTarball
       https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+  all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
 in
 {
   nixpkgs.config = {
@@ -35,6 +36,10 @@ in
       unstable.jetbrains.idea-community
 
       (import (fetchGit "https://github.com/haslersn/fish-nix-shell"))
+
+      # Haskell things
+      stack cachix
+      (all-hies.selection { selector = p: {inherit (p) ghc864 ghc843; }; })
     ];
 
     file = {
@@ -110,6 +115,8 @@ in
       extraPackages = epkgs: with epkgs; [
         magit company nix-mode rainbow-delimiters
         amx dracula-theme
+
+        lsp-haskell
       ];
     };
 

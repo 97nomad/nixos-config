@@ -7,7 +7,7 @@
  '(initial-buffer-choice "~")
  '(package-selected-packages
    (quote
-    (magit company nix-mode rainbow-delimeters amx dracula-theme))))
+    (magit company nix-mode rainbow-delimeters amx dracula-theme lsp-haskell))))
 (custom-set-faces)
 
 ;; disable alarm
@@ -63,3 +63,7 @@
 
 ;; Красивые штуки для M-x
 (amx-mode 1)
+
+;; Haskell штуки
+(add-hook 'haskell-mode-hook #'lsp)
+(setq lsp-haskell-process-path-hie "hie-wrapper")
