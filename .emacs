@@ -69,3 +69,6 @@
 ;; Haskell штуки
 (add-hook 'haskell-mode-hook #'lsp)
 (setq lsp-haskell-process-path-hie "hie-wrapper")
+
+;; TRAMP штуки
+(setq tramp-default-method "sshx")
