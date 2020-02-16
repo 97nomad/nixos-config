@@ -92,7 +92,7 @@
   users.defaultUserShell = pkgs.fish;
   users.users.nommy = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "adbusers" ];
   };
 
   ## Misc
@@ -100,6 +100,12 @@
     openssh.enable = true;
     upower.enable = true;
   };
+
+  ## Android
+  programs.adb.enable = true;
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
