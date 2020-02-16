@@ -121,7 +121,7 @@ in
         magit company nix-mode rainbow-delimiters
         dracula-theme helm
 
-        lsp-haskell
+        lsp-haskell rust-mode lsp-mode direnv
       ];
     };
 
