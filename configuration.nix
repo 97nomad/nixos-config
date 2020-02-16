@@ -38,7 +38,7 @@
 
   ## Packages
   environment.systemPackages = with pkgs; [
-    wget vim git gvfs glib
+    wget vim git gvfs glib gnumake
   ];
 
   ## Bluetooth
