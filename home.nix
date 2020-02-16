@@ -27,7 +27,7 @@ in
 
       # gnome stuff
       gnome3.nautilus gnome3.file-roller 
-      gnome3.dconf
+      gnome3.dconf gnome3.gvfs
 
       arandr rofi rofi-pass xsecurelock
       xautolock xdotool pwgen
@@ -131,6 +131,8 @@ in
   services = {
     emacs.enable = true;
 
+    blueman-applet.enable = true;
+
     screen-locker = {
       enable = true;
       lockCmd = "xsecurelock";
@@ -141,7 +143,6 @@ in
     };
 
     flameshot.enable = true;
-    blueman-applet.enable = true;
   };
 
   dconf.enable = true;

@@ -38,8 +38,11 @@
 
   ## Packages
   environment.systemPackages = with pkgs; [
-    wget vim git
+    wget vim git gvfs glib
   ];
+
+  ## Bluetooth
+  services.blueman.enable = true;
 
   ## Sound and Video
   sound.enable = true;
