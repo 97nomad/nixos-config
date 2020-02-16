@@ -24,6 +24,7 @@ in
 
       # viewers and editors
       libreoffice feh vlc zathura
+      gimp
 
       # gnome stuff
       gnome3.nautilus gnome3.file-roller 
