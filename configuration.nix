@@ -41,6 +41,11 @@
     wget vim git gvfs glib gnumake
   ];
 
+  ## Shells
+  environment.shells = with pkgs; [
+    fish
+  ];
+
   ## Bluetooth
   services.blueman.enable = true;
 
