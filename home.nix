@@ -46,6 +46,9 @@ in
       # Haskell things
       stack cachix
       (all-hies.selection { selector = p: {inherit (p) ghc864 ghc843; }; })
+
+      # Rust things
+      rustup
     ];
 
     file = {
