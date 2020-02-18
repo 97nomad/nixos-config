@@ -120,7 +120,9 @@ in
       enable = true;
       extraPackages = epkgs: with epkgs; [
         magit company nix-mode rainbow-delimiters
-        dracula-theme helm
+        dracula-theme
+
+        ivy counsel swiper
 
         lsp-haskell rust-mode lsp-mode direnv
       ];
