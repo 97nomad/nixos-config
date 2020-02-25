@@ -20,10 +20,10 @@ rec {
     "${mod}+Shift+e" = "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'";
     "${mod}+Print" = "exec flameshot gui";
 
-    "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume 0 +5%";
-    "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume 0 -5%";
-    "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute 0 toggle";
-    "XF86AudioMicMute" = "exec --no-startup-id pactl set-source-mute 1 toggle";
+    "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%";
+    "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%";
+    "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle";
+    "XF86AudioMicMute" = "exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle";
 
     "${mod}+p" = "exec arandr";
 
