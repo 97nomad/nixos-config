@@ -139,6 +139,17 @@ in
 
     blueman-applet.enable = true;
 
+
+    gpg-agent = {
+      enable = true;
+      enableSshSupport = true;
+      enableExtraSocket = true;
+      enableScDaemon = true;
+      extraConfig = ''
+        allow-emacs-pinentry
+      '';
+    };
+
     screen-locker = {
       enable = true;
       lockCmd = "xsecurelock";

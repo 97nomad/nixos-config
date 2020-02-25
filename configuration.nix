@@ -38,7 +38,7 @@
 
   ## Packages
   environment.systemPackages = with pkgs; [
-    wget vim git gvfs glib gnumake
+    wget vim git gvfs glib gnumake nitrokey-udev-rules
   ];
 
   ## Shells
@@ -100,7 +100,7 @@
   users.defaultUserShell = pkgs.fish;
   users.users.nommy = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "adbusers" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "adbusers" "plugdev" "nitrokey" ];
   };
 
   ## Misc
@@ -108,6 +108,7 @@
     openssh.enable = true;
     upower.enable = true;
   };
+  hardware.nitrokey.enable = true;
 
   ## Android
   programs.adb.enable = true;
