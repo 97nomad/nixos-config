@@ -125,7 +125,7 @@ in
         magit company nix-mode rainbow-delimiters
         dracula-theme
 
-        ivy counsel swiper
+        ivy counsel swiper counsel-tramp
 
         lsp-haskell rust-mode lsp-mode direnv
       ];
