@@ -37,7 +37,7 @@ in
       noto-fonts fira-code
 
       git direnv gnupg pass vim i3status
-      htop gksu
+      htop gksu nextcloud-client
 
       unstable.jetbrains.idea-community
 
@@ -139,6 +139,7 @@ in
 
     blueman-applet.enable = true;
 
+    nextcloud-client.enable = true;
 
     gpg-agent = {
       enable = true;
