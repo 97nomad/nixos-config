@@ -115,8 +115,17 @@ in
       userSettings = {
         "update.channel" = "none";
         "[nix]"."editor.tabSize" = 2;
-      extensions = [ pkgs.vscode-extensions.bbenoist.Nix ];
       };
+      extensions = [
+        pkgs.vscode-extensions.bbenoist.Nix
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "nix-env-selector";
+          publisher = "arrterian";
+          version = "0.1.1";
+          sha256 = "55ab753a99b8b6390bb526d127cf7ced334108a1f14bd8ecbe6adc337da37739";
+        }
+      ];
     };
 
     emacs = {
