@@ -109,6 +109,7 @@
     upower.enable = true;
   };
   hardware.nitrokey.enable = true;
+  environment.variables.MOZ_USE_XINPUT2 = "1";
 
   ## Android
   programs.adb.enable = true;
