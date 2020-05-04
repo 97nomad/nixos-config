@@ -53,10 +53,15 @@
   sound.enable = true;
   hardware = {
     cpu.intel.updateMicrocode = true;
-    opengl.enable = true;
+    opengl = {
+      enable = true;
+      driSupport32Bit = true;
+      extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+    };
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
+      support32Bit = true;
       extraModules = [ pkgs.pulseaudio-modules-bt ];
     };
     bluetooth.enable = true;
@@ -67,6 +72,11 @@
     enable = true;
     layout = "us,ru";
     xkbOptions = "ctrl:nocaps,grp:toggle,grp_led:caps";
+
+    multitouch = {
+      enable = true;
+      ignorePalm = true;
+    };
 
     libinput = {
       enable = true;
