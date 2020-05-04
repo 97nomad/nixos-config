@@ -37,7 +37,7 @@ in
       noto-fonts fira-code
 
       git direnv gnupg pass vim i3status
-      htop gksu nextcloud-client
+      htop gksu nextcloud-client browserpass
 
       unstable.jetbrains.idea-community
 
@@ -77,6 +77,9 @@ in
       theme = "sidebar";
       terminal = "alacritty";
     };
+
+    browserpass.enable = true;
+    browserpass.browsers = [ "firefox" ];
 
     alacritty = {
       enable = true;
