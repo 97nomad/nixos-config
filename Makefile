@@ -9,7 +9,7 @@ system-rebuild:
 system: system-copy system-rebuild
 
 home-rebuild:
-	home-manager switch
+	cp user-config.nix ~/.config/nixpkgs/config.nix && home-manager switch
 
 home: home-rebuild
 
