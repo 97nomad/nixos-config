@@ -22,6 +22,8 @@ in
 
       flameshot blueman
 
+      steam remmina
+
       # viewers and editors
       libreoffice feh vlc zathura
       gimp freecad inkscape
