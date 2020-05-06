@@ -39,6 +39,10 @@ in
       git direnv gnupg pass vim i3status
       htop gksu nextcloud-client browserpass
 
+      (pass.withExtensions(e: with e; [
+        pass-otp pass-genphrase pass-audit
+      ]))
+
       unstable.jetbrains.idea-community
 
       (import (fetchGit "https://github.com/haslersn/fish-nix-shell"))
@@ -49,6 +53,8 @@ in
 
       # Rust things
       rustup
+
+      kdeconnect nix-index 
     ];
 
     file = {
@@ -152,6 +158,11 @@ in
     blueman-applet.enable = true;
 
     nextcloud-client.enable = true;
+
+    kdeconnect = {
+      enable = true;
+      indicator = true;
+    };
 
     gpg-agent = {
       enable = true;

@@ -24,6 +24,21 @@
       networkmanagerapplet
       networkmanager-openvpn
     ];
+
+    # Ports:
+    # 22 - SSH
+    # 1714-1764 - KDE Connect
+    firewall = {
+      enable = true;
+      allowPing = true;
+      allowedTCPPorts = [ 22 ];
+      allowedTCPPortRanges = [
+        { from=1714; to=1764; }
+      ];
+      allowedUDPPortRanges = [
+        { from=1714; to=1764; }
+      ];
+    };
   };
 
   ## Internationalization
