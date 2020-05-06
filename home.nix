@@ -30,13 +30,13 @@ in
       gnome3.nautilus gnome3.file-roller 
       gnome3.dconf gnome3.gvfs
 
-      arandr rofi rofi-pass xsecurelock
+      arandr rofi rofi-pass xsecurelock xss-lock
       xautolock xdotool pwgen
 
       # fonts
       noto-fonts fira-code
 
-      git direnv gnupg pass vim i3status
+      git direnv gnupg vim i3status
       htop gksu nextcloud-client browserpass
 
       (pass.withExtensions(e: with e; [
@@ -176,7 +176,7 @@ in
 
     screen-locker = {
       enable = true;
-      lockCmd = "xsecurelock";
+      lockCmd = "${pkgs.xsecurelock}/bin/xsecurelock";
       xautolockExtraOptions = [
         "-lockaftersleep"
         "-detectsleep"

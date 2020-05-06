@@ -16,14 +16,16 @@
   };
 
   ## Network
-  networking.hostName = "neko-maid";
-  networking.networkmanager = {
-    enable = true;
+  networking = {
+    hostName = "neko-maid";
+    networkmanager = {
+      enable = true;
 
-    packages = with pkgs; [
-      networkmanagerapplet
-      networkmanager-openvpn
-    ];
+      packages = with pkgs; [
+        networkmanagerapplet
+        networkmanager-openvpn
+      ];
+    };
 
     # Ports:
     # 22 - SSH
@@ -42,11 +44,11 @@
   };
 
   ## Internationalization
-  i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "us";
   };
+  i18n.defaultLocale = "en_US.UTF-8";
 
   time.timeZone = "Europe/Moscow";
   services.ntp.enable = true;
@@ -88,11 +90,7 @@
     layout = "us,ru";
     xkbOptions = "ctrl:nocaps,grp:toggle,grp_led:caps";
 
-    multitouch = {
-      enable = true;
-      ignorePalm = true;
-    };
-
+    wacom.enable = true;
     libinput = {
       enable = true;
       naturalScrolling = true;
@@ -108,6 +106,10 @@
         theme.package = pkgs.adapta-gtk-theme;
         theme.name = "Adapta-Nokto-Eta";
       };
+    };
+    windowManager.i3 = {
+      enable = true;
+      package = pkgs.i3-gaps;
     };
   };
 
@@ -146,7 +148,7 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.09"; # Did you read the comment?
+  system.stateVersion = "20.03"; # Did you read the comment?
 
 }
 
