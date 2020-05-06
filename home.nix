@@ -134,6 +134,24 @@ in
           version = "0.1.1";
           sha256 = "55ab753a99b8b6390bb526d127cf7ced334108a1f14bd8ecbe6adc337da37739";
         }
+        {
+          name = "ide-purescript";
+          publisher = "nwolverson";
+          version = "0.20.8";
+          sha256 = "378e2cdd4e2ff4cf403b36ad1b5d7b083f26384da95d93033134a41056ed5b99";
+        }
+        {
+          name = "language-purescript";
+          publisher = "nwolverson";
+          version = "0.2.2";
+          sha256 = "3f5f3632f6c7401cd75a121fa7a004eb5ce3bb14e2980470a3c8711dac302d4a";
+        }
+        {
+          name = "rust";
+          publisher = "rust-lang";
+          version = "0.7.0";
+          sha256 = "40f3b9200e66ad8a3a727de17538e6ce16d137f614ec6e3232ca49f9d441c79a";
+        }
       ];
     };
 
