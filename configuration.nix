@@ -137,6 +137,8 @@
   };
   hardware.nitrokey.enable = true;
   environment.variables.MOZ_USE_XINPUT2 = "1";
+  programs.dconf.enable = true;
+  services.gnome3.gnome-keyring.enable = true;
 
   ## Android
   programs.adb.enable = true;

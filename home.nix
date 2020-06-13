@@ -206,8 +206,6 @@ in
     flameshot.enable = true;
   };
 
-  dconf.enable = true;
-
   gtk = {
     enable = true;
     iconTheme.package = pkgs.paper-icon-theme;
