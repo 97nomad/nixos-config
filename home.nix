@@ -26,7 +26,7 @@ in
 
       # viewers and editors
       libreoffice feh vlc zathura
-      gimp freecad inkscape
+      gimp freecad inkscape krita
 
       # gnome stuff
       gnome3.nautilus gnome3.file-roller 
