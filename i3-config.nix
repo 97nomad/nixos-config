@@ -18,7 +18,7 @@ rec {
     "${mod}+q" = "exec rofi-pass";
     "${mod}+Escape" = "exec xautolock -locknow";
     "${mod}+Shift+e" = "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'";
-    "${mod}+Print" = "exec flameshot gui";
+    "Print" = "exec flameshot gui";
 
     "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%";
     "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%";
@@ -49,6 +49,9 @@ rec {
     "${mod}+Ctrl+Shift+Down" = "resize grow height 8 px or 8 ppt";
     "${mod}+Ctrl+Shift+Up" = "resize shrink height 8 px or 8 ppt";
     "${mod}+Ctrl+Shift+Right" = "resize grow width 8 px or 8 ppt";
+
+    "${mod}+Shift+plus" = "gaps inner current plus 6";
+    "${mod}+Shift+minus" = "gaps inner current minus 6";
 
     "${mod}+f" = "fullscreen toggle";
   } // workspaces);
