@@ -56,7 +56,7 @@ in
       # Rust things
       rustup
 
-      kdeconnect nix-index 
+      kdeconnect nix-index nixops
     ];
 
     file = {
@@ -166,6 +166,7 @@ in
         ivy counsel swiper counsel-tramp
 
         lsp-haskell rust-mode lsp-mode direnv
+        yaml-mode
       ];
     };
 
