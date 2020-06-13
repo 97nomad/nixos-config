@@ -67,7 +67,10 @@
   services.blueman.enable = true;
 
   ## Sound and Video
-  sound.enable = true;
+  sound = {
+    enable = true;
+    enableOSSEmulation = true;
+  };
   hardware = {
     cpu.intel.updateMicrocode = true;
     opengl = {
