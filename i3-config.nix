@@ -52,4 +52,14 @@ rec {
 
     "${mod}+f" = "fullscreen toggle";
   } // workspaces);
+
+  bars = [
+    {
+      position = "bottom";
+      colors.separator = "#B5B5B5";
+      extraConfig = ''
+        separator_symbol ♥
+      '';
+    }
+  ];
 }
