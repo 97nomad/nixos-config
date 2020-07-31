@@ -57,6 +57,14 @@ in
       rustup
 
       kdeconnect nix-index nixops
+      # Better Emacs
+      (writeShellScriptBin "ee" ''
+        ${emacs}/bin/emacsclient -s /tmp/emacs1000/server -c $@
+      '')
+
+      (writeShellScriptBin "ec" ''
+        ${emacs}/bin/emacsclient -s /tmp/emacs1000/server -nc $@
+      '')
     ];
 
     file = {
