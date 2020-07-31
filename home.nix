@@ -57,6 +57,13 @@ in
       rustup
 
       kdeconnect nix-index nixops
+
+      ## Music
+      vmpk qsynth qjackctl
+
+      ## Video and photo
+      openshot-qt
+
       # Better Emacs
       (writeShellScriptBin "ee" ''
         ${emacs}/bin/emacsclient -s /tmp/emacs1000/server -c $@

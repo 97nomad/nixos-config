@@ -9,6 +9,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  ## Kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   ## Nix
   nix = {
     trustedUsers = [ "root" "nommy" ];
@@ -87,6 +90,15 @@
     bluetooth.enable = true;
   };
 
+  services.jack = {
+    jackd.enable = true;
+    alsa.enable = false;
+    loopback.enable = true;
+  };
+  systemd.user.services.pulseaudio.environment = {
+    JACK_PROMISCUOUS_SERVER = "jackaudio";
+  };
+
   ## Graphics
   services.xserver = {
     enable = true;
@@ -130,7 +142,7 @@
   users.defaultUserShell = pkgs.fish;
   users.users.nommy = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "adbusers" "plugdev" "nitrokey" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "adbusers" "plugdev" "nitrokey" "jackaudio" ];
   };
 
   ## Misc
