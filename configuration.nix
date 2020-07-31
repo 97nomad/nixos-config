@@ -114,6 +114,7 @@
 
     displayManager.lightdm = {
       enable = true;
+      background = "/usr/share/wallpaper.png";
       greeter.enable = true;
       greeters.gtk = {
         iconTheme.package = pkgs.paper-icon-theme;
