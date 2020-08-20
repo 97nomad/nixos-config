@@ -33,4 +33,19 @@
 
   nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+
+  hardware.fancontrol = {
+    enable = true;
+    config = ''
+      INTERVAL=5
+      DEVPATH=hwmon4= hwmon5=devices/platform/coretemp.0
+      DEVNAME=hwmon4=dell_smm hwmon5=coretemp
+      FCTEMPS=hwmon4/pwm1=hwmon5/temp1_input
+      FCFANS= hwmon4/pwm1=hwmon4/fan1_input
+      MINTEMP=hwmon4/pwm1=20
+      MAXTEMP=hwmon4/pwm1=60
+      MINSTART=hwmon4/pwm1=150
+      MINSTOP=hwmon4/pwm1=100
+    '';
+  };
 }

@@ -64,6 +64,9 @@ in
       ## Video and photo
       openshot-qt
 
+      ## Hardware monitoring
+      lm_sensors
+
       # Better Emacs
       (writeShellScriptBin "ee" ''
         ${emacs}/bin/emacsclient -s /tmp/emacs1000/server -c $@
