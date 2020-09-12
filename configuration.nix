@@ -96,6 +96,13 @@
       package = pkgs.pulseaudioFull;
       support32Bit = true;
       extraModules = [ pkgs.pulseaudio-modules-bt ];
+      extraConfig = ''
+        load-module module-switch-on-connect
+
+        load-module module-jack-sink channels=2
+        load-module module-jack-source channels=2
+        set-default-sink jack_out
+      '';
     };
     bluetooth.enable = true;
   };
