@@ -7,7 +7,7 @@
  '(initial-buffer-choice "~")
  '(package-selected-packages
    (quote
-    (magit company nix-mode rainbow-delimeters dracula-theme helm lsp-haskell))))
+    (magit nix-mode rainbow-delimeters dracula-theme))))
 (custom-set-faces)
 
 ;; disable alarm
@@ -83,9 +83,13 @@
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
 
-;; Haskell штуки
-(add-hook 'haskell-mode-hook #'lsp)
-(setq lsp-haskell-process-path-hie "hie-wrapper")
-
 ;; TRAMP штуки
 (setq tramp-default-method "sshx")
+
+;; Rust штуки
+(setq lsp-rust-server 'rust-analyzer)
+(setq lsp-rust-analyzer-server-command "rust-analyzer")
+(add-hook 'rust-mode-hook #'lsp)
+
+;; Хоткей для direnv'а
+(global-set-key (kbd "C-c C-d") 'direnv-mode)
