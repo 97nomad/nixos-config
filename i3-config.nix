@@ -13,7 +13,7 @@ rec {
   in lib.mkDefault ({
     "${mod}+Tab" = "workspace back_and_forth";
     "${mod}+Shift+q" = "kill";
-    "${mod}+Return" = "exec alacritty";
+    "${mod}+Return" = "exec DRI_PRIME=1 alacritty";
     "${mod}+Shift+Return" = "exec ee";
     "${mod}+d" = "exec rofi -combi-mode drun#run -show combi";
     "${mod}+q" = "exec rofi-pass";
