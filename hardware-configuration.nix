@@ -6,6 +6,7 @@
 {
   imports =
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/dell/latitude/3480"
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
@@ -33,9 +34,11 @@
 
   nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  powerManagement.powertop.enable = true;
+  powerManagement.powerUpCommands = "${pkgs.kmod}/bin/rmmod atkbd; ${pkgs.kmod}/bin/modprobe atkbd reset=1";
 
   hardware.fancontrol = {
-    enable = true;
+    enable = false;
     config = ''
       INTERVAL=5
       DEVPATH=hwmon4= hwmon5=devices/platform/coretemp.0

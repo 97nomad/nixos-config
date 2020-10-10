@@ -62,7 +62,7 @@
 
   ## Packages
   environment.systemPackages = with pkgs; [
-    wget vim git gvfs glib gnumake nitrokey-udev-rules
+    wget vim git gvfs glib gnumake nitrokey-udev-rules powertop
   ];
 
   ## Shells

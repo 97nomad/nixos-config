@@ -29,7 +29,7 @@ in
 
       # gnome stuff
       gnome3.nautilus gnome3.file-roller 
-      gnome3.dconf gnome3.gvfs
+      gnome3.dconf gnome3.gvfs ffmpeg
 
       arandr rofi rofi-pass xsecurelock xss-lock
       xautolock xdotool pwgen
@@ -61,6 +61,8 @@ in
 
       ## Hardware monitoring
       lm_sensors
+
+      qbittorrent cura simplescreenrecorder
 
       # Better Emacs
       (writeShellScriptBin "ee" ''
