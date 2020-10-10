@@ -62,7 +62,10 @@
 
   ## Packages
   environment.systemPackages = with pkgs; [
-    wget vim git gvfs glib gnumake nitrokey-udev-rules powertop
+    wget vim git gvfs glib gnumake nitrokey-udev-rules
+
+    # Power management
+    powertop
   ];
 
   ## Shells
@@ -166,12 +169,25 @@
   ## Misc
   services = {
     openssh.enable = true;
-    upower.enable = true;
   };
   hardware.nitrokey.enable = true;
   environment.variables.MOZ_USE_XINPUT2 = "1";
   programs.dconf.enable = true;
   services.gnome3.gnome-keyring.enable = true;
+
+  ## Power management
+  ### Disable upower and systemd handlers and let acpid rule them all
+  services = {
+    upower = {
+      enable = true;
+      ignoreLid = true;
+    };
+    acpid = {
+      enable = true;
+      lidEventCommands = "systemctl suspend";
+    };
+    logind.lidSwitch = "ignore";
+  };
 
   ## Android
   programs.adb.enable = true;
