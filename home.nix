@@ -56,6 +56,9 @@ in
       ## Video and photo
       openshot-qt
 
+      ## Docker
+      docker-compose
+
       ## Hardware monitoring
       lm_sensors
 
