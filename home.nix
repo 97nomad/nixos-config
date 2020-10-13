@@ -66,11 +66,11 @@ in
 
       # Better Emacs
       (writeShellScriptBin "ee" ''
-        ${emacs}/bin/emacsclient -s /tmp/emacs1000/server -c $@
+        ${emacs}/bin/emacsclient -s /run/user/1000/emacs/server -c $@
       '')
 
       (writeShellScriptBin "ec" ''
-        ${emacs}/bin/emacsclient -s /tmp/emacs1000/server -nc $@
+        ${emacs}/bin/emacsclient -s /run/user/1000/emacs/server -nc $@
       '')
     ];
 
@@ -190,6 +190,7 @@ in
 
   services = {
     emacs.enable = true;
+    emacs.socketActivation.enable = true;
 
     blueman-applet.enable = true;
 
