@@ -129,6 +129,9 @@ in
       promptInit = ''
         fish-nix-shell --info-right | source
       '';
+      functions = {
+        fish_greeting = "echo 'Welcome home, mistress'";
+      };
     };
 
     direnv = {
