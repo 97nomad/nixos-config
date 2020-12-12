@@ -37,6 +37,9 @@ in
       # fonts
       noto-fonts fira-code
 
+      # themes
+      adapta-gtk-theme adapta-kde-theme
+
       git direnv gnupg vim i3status
       htop gksu nextcloud-client browserpass
 
@@ -62,7 +65,7 @@ in
       ## Hardware monitoring
       lm_sensors
 
-      qbittorrent cura simplescreenrecorder
+      qbittorrent cura simplescreenrecorder onboard
 
       # Better Emacs
       (writeShellScriptBin "ee" ''
@@ -235,7 +238,6 @@ in
   };
   qt = {
     enable = true;
-    platformTheme = "gtk";
   };
 
   xsession = {

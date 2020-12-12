@@ -3,6 +3,10 @@ rec {
   modifier = "Mod4";
   modes = {};
 
+  startup = [
+    { command = "onboard"; notification = false; }
+  ];
+
   keybindings =
   let
     mod = modifier;

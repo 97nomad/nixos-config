@@ -174,6 +174,9 @@
   environment.variables.MOZ_USE_XINPUT2 = "1";
   programs.dconf.enable = true;
   services.gnome3.gnome-keyring.enable = true;
+  services.gnome3.at-spi2-core.enable = true;
+
+
 
   ## Power management
   ### Disable upower and systemd handlers and let acpid rule them all
