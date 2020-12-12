@@ -63,9 +63,13 @@
   ## Packages
   environment.systemPackages = with pkgs; [
     wget vim git gvfs glib gnumake nitrokey-udev-rules
+    killall lsof
 
     # Power management
     powertop acpid
+
+    # RTL-SDR
+    libusb rtl-sdr gqrx
   ];
 
   ## Shells
@@ -188,11 +192,14 @@
     logind.lidSwitch = "ignore";
   };
 
-  ## Android
-  programs.adb.enable = true;
+  ## udev
   services.udev.packages = [
     pkgs.android-udev-rules
+    pkgs.rtl-sdr
   ];
+
+  ## Android
+  programs.adb.enable = true;
 
   virtualisation.docker.enable = true;
 

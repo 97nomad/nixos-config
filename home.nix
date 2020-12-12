@@ -67,6 +67,9 @@ in
 
       qbittorrent cura simplescreenrecorder onboard
 
+      ## SDR
+      urh gqrx gnuradio rtl_433 gnuradio-with-packages gr-osmosdr
+
       # Better Emacs
       (writeShellScriptBin "ee" ''
         ${emacs}/bin/emacsclient -s /run/user/1000/emacs/server -c $@
