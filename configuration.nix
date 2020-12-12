@@ -65,7 +65,7 @@
     wget vim git gvfs glib gnumake nitrokey-udev-rules
 
     # Power management
-    powertop
+    powertop acpid
   ];
 
   ## Shells
@@ -178,10 +178,6 @@
   ## Power management
   ### Disable upower and systemd handlers and let acpid rule them all
   services = {
-    upower = {
-      enable = true;
-      ignoreLid = true;
-    };
     acpid = {
       enable = true;
       lidEventCommands = "systemctl suspend";

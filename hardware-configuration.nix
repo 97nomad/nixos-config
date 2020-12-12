@@ -33,11 +33,6 @@
   swapDevices = [ ];
 
   nix.maxJobs = lib.mkDefault 8;
-  powerManagement = {
-    enable = true;
-    powertop.enable = true;
-    powerUpCommands = "${pkgs.kmod}/bin/rmmod atkbd; ${pkgs.kmod}/bin/modprobe atkbd reset=1";
-  };
 
   services.tlp.settings = {
     CPU_SCALING_GOVERNOR_ON_AC = "powersave";
