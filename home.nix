@@ -24,12 +24,15 @@ in
       steam remmina
 
       # viewers and editors
-      libreoffice feh vlc zathura
-      gimp freecad inkscape krita
+      libreoffice
+      feh vlc zathura
+      gimp freecad inkscape krita unstable.blender
+      kicad openscad
 
       # gnome stuff
       gnome3.nautilus gnome3.file-roller 
-      gnome3.dconf gnome3.gvfs ffmpeg
+      gnome3.dconf gnome3.gvfs ffmpeg ffmpegthumbnailer
+      gst_all_1.gst-libav unrar
 
       arandr rofi rofi-pass xsecurelock xss-lock
       xautolock xdotool pwgen
@@ -51,7 +54,7 @@ in
 
       (import (fetchGit "https://github.com/haslersn/fish-nix-shell"))
 
-      kdeconnect nix-index nixops
+      kdeconnect nix-index nixops ag
 
       ## Music
       vmpk qsynth qjackctl
@@ -65,10 +68,10 @@ in
       ## Hardware monitoring
       lm_sensors
 
-      qbittorrent cura simplescreenrecorder onboard
+      qbittorrent cura simplescreenrecorder onboard unstable.super-slicer
 
       ## SDR
-      urh gqrx gnuradio rtl_433 gnuradio-with-packages gr-osmosdr
+      urh gqrx rtl_433
 
       # Better Emacs
       (writeShellScriptBin "ee" ''

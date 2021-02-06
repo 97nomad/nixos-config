@@ -31,6 +31,7 @@
       packages = with pkgs; [
         networkmanagerapplet
         networkmanager-openvpn
+        networkmanager-openconnect
       ];
     };
 
@@ -44,6 +45,7 @@
       allowedTCPPortRanges = [
         { from=1714; to=1764; }
       ];
+      allowedUDPPorts = [ 69 ];
       allowedUDPPortRanges = [
         { from=1714; to=1764; }
       ];
@@ -79,6 +81,10 @@
 
   ## Bluetooth
   services.blueman.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    package = pkgs.bluezFull;
+  };
 
   ## Sound and Video
   sound = {
@@ -111,7 +117,6 @@
         set-default-sink jack_out
       '';
     };
-    bluetooth.enable = true;
   };
 
   services.jack = {
@@ -167,7 +172,7 @@
   users.defaultUserShell = pkgs.fish;
   users.users.nommy = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "adbusers" "plugdev" "nitrokey" "jackaudio" "docker" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "adbusers" "plugdev" "nitrokey" "jackaudio" "docker" "plugdev" "dialout" "bluetooth" ];
   };
 
   ## Misc
@@ -202,6 +207,11 @@
   programs.adb.enable = true;
 
   virtualisation.docker.enable = true;
+
+  ## TFTP
+  services.tftpd = {
+    enable = true;
+  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
