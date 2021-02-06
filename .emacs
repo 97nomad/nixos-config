@@ -57,10 +57,6 @@
 (show-paren-mode 1)
 (electric-pair-mode 1)
 
-;; Штуки для гита
-(setq smerge-command-prefix "\C-cv")
-(global-set-key (kbd "C-c v m") 'magit-status)
-
 ;; Ivy штуки
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
@@ -91,5 +87,12 @@
 (setq lsp-rust-analyzer-server-command "rust-analyzer")
 (add-hook 'rust-mode-hook #'lsp)
 
-;; Хоткей для direnv'а
+;; Няшные хоткеи
+;; direnv
 (global-set-key (kbd "C-c C-d") 'direnv-mode)
+;; magit
+(setq smerge-command-prefix "\C-cv")
+(global-set-key (kbd "C-c v m") 'magit-status)
+;; buffers
+(global-set-key (kbd "M-k") 'kill-this-buffer)
+(global-set-key (kbd "M-o") 'other-window)
