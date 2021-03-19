@@ -30,7 +30,8 @@
 
           hanekawa = buildSystem [
             ./generic-configuration.nix
-            ./hanekawa-config.nix
+            ./hanekawa-system.nix
+            ./hanekawa-hardware.nix
             "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
           ];
         };

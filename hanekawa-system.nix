@@ -23,7 +23,7 @@
   };
 
   ## Extra packages
-  environment.extraPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     wireshark
   ];
 
