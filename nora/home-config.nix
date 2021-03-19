@@ -1,19 +1,8 @@
 args @ { config, pkgs, lib, ... }:
+let
+  unstable = config.also.unstable;
+in
 {
-#  nixpkgs.config = {
-#    allowUnfree = true;
-#    packageOverrides = pkgs: {
-#      unstable = import unstableTarball {
-#        config = config.nixpkgs.config;
-#      };
-#      steam = pkgs.steam.override {
-#        extraPkgs = pkgs: with pkgs; [
-#          nghttp2 libidn2 rtmpdump libpsl
-#        ];
-#      };
-#    };
-#  };
-
   home = {
     packages = with pkgs; [
       #unstable
@@ -24,9 +13,13 @@ args @ { config, pkgs, lib, ... }:
 
       flameshot blueman
 
-      steam
+      (steam.override {
+        extraPkgs = pkgs: with pkgs; [
+         nghttp2 libidn2 rtmpdump libpsl
+        ];
+      })
 
-      # viewers and editors
+      # Viewers and editors
       libreoffice
       feh vlc zathura
       gimp freecad inkscape krita

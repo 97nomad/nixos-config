@@ -15,25 +15,18 @@
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
+        nixpkgs.config.allowUnfree = true;
+        unstable = (import nixpkgs-unstable {
+          inherit system;
+          config = { allowUnfree = true; };
+        });
       };
       buildConfig = modules: { inherit modules system specialArgs; };
       buildSystem = modules: lib.nixosSystem (buildConfig modules);
-      unstable-overlay = (
-        { pkgs, ...}:
-        let
-          overlay-unstable = final: prev: {
-            unstable = nixpkgs-unstable.legacyPackages.${system};
-          };
-        in
-          {
-            nixpkgs.overlays = [ overlay-unstable ];
-          }
-      );
     in
       {
         nixosConfigurations = {
           nora = buildSystem [
-            unstable-overlay
             ./config/generic-configuration.nix
             ./nora/system.nix
             ./nora/hardware.nix
