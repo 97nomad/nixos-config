@@ -1,38 +1,41 @@
 args @ { config, pkgs, lib, ... }:
-
-let
-  unstableTarball =
-    fetchTarball
-      https://github.com/NixOS/nixpkgs/archive/master.tar.gz;
-in
 {
-  nixpkgs.config = {
-    allowUnfree = true;
-    packageOverrides = pkgs: {
-      unstable = import unstableTarball {
-        config = config.nixpkgs.config;
-      };
-    };
-  };
+#  nixpkgs.config = {
+#    allowUnfree = true;
+#    packageOverrides = pkgs: {
+#      unstable = import unstableTarball {
+#        config = config.nixpkgs.config;
+#      };
+#      steam = pkgs.steam.override {
+#        extraPkgs = pkgs: with pkgs; [
+#          nghttp2 libidn2 rtmpdump libpsl
+#        ];
+#      };
+#    };
+#  };
 
   home = {
     packages = with pkgs; [
-      chromium unstable.tdesktop discord
+      #unstable
+      unstable.tdesktop unstable.blender unstable.super-slicer
+      unstable.jetbrains.idea-community
+
+      chromium discord
 
       flameshot blueman
 
-      steam remmina
+      steam
 
       # viewers and editors
       libreoffice
       feh vlc zathura
-      gimp freecad inkscape krita unstable.blender
-      kicad openscad
+      gimp freecad inkscape krita
+      kicad openscad lmms
 
       # gnome stuff
       gnome3.nautilus gnome3.file-roller 
       gnome3.dconf gnome3.gvfs ffmpeg ffmpegthumbnailer
-      gst_all_1.gst-libav unrar
+      gst_all_1.gst-libav unrar gnome3.eog gnome3.shotwell
 
       arandr rofi rofi-pass xsecurelock xss-lock
       xautolock xdotool pwgen
@@ -50,9 +53,9 @@ in
         pass-otp pass-genphrase pass-audit
       ]))
 
-      unstable.jetbrains.idea-community
+      #unstable.jetbrains.idea-community
 
-      (import (fetchGit "https://github.com/haslersn/fish-nix-shell"))
+      any-nix-shell
 
       kdeconnect nix-index nixops ag
 
@@ -68,10 +71,13 @@ in
       ## Hardware monitoring
       lm_sensors
 
-      qbittorrent cura simplescreenrecorder onboard unstable.super-slicer
+      qbittorrent cura simplescreenrecorder onboard
 
       ## SDR
       urh gqrx rtl_433
+
+      ## Piano
+      lenmus musescore rhythmbox
 
       # Better Emacs
       (writeShellScriptBin "ee" ''
@@ -84,8 +90,8 @@ in
     ];
 
     file = {
-      ".config/i3status/config".source = "/home/nommy/nixos/i3status";
-      ".emacs".source = "/home/nommy/nixos/.emacs";
+      ".config/i3status/config".source = ../config/i3status;
+      ".emacs".source = ../config/.emacs;
     };
 
     keyboard = {
@@ -96,8 +102,12 @@ in
 
   programs = {
     ssh = {
-      compression = true;
       enable = true;
+      compression = true;
+      matchBlocks.vespa = {
+        hostname = "storage.nekomaidtails.xyz";
+        identityFile = "~/.ssh/id_rsa";
+      };
     };
 
     firefox = {
@@ -136,7 +146,7 @@ in
     fish = {
       enable = true;
       promptInit = ''
-        fish-nix-shell --info-right | source
+        any-nix-shell --info-right | source
       '';
       functions = {
         fish_greeting = "echo 'Welcome home, mistress'";
@@ -145,6 +155,7 @@ in
 
     direnv = {
       enable = true;
+      enableNixDirenvIntegration= true;
       enableFishIntegration = true;
     };
 
@@ -251,7 +262,7 @@ in
     windowManager = {
       i3.enable = true;
       i3.package = pkgs.i3-gaps;
-      i3.config = import ~/nixos/i3-config.nix args;
+      i3.config = import ../config/i3-config.nix args;
     };
   };
 }
