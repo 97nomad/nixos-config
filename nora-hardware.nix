@@ -4,11 +4,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/dell/latitude/3480"
-    ];
-
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" "snd-seq" "snd-rawmidi" ];
@@ -31,7 +26,13 @@
     options = [ "rw" ];
   };
 
-  swapDevices = [ ];
+  swapDevices = [
+    {
+      device = "/swapfile";
+      priority = 100;
+      size = 8192;
+    }
+  ];
 
   nix.maxJobs = lib.mkDefault 8;
 

@@ -1,11 +1,12 @@
 .PHONY: system-copy system-rebuild system home-rebuild home
 
 system-copy:
-	cp configuration.nix /etc/nixos/configuration.nix
-	cp hardware-configuration.nix /etc/nixos/hardware-configuration.nix
+	cp nora-system.nix /etc/nixos/nora-system.nix
+	cp generic-configuration.nix /etc/nixos/generic-configuration.nix
+	cp nora-hardware.nix /etc/nixos/nora-hardware.nix
+	cp flake.nix /etc/nixos/flake.nix
 
 system-rebuild:
-	nix-channel --update
 	nixos-rebuild switch
 
 system: system-copy system-rebuild
