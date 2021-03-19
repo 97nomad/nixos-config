@@ -1,12 +1,15 @@
 args @ { config, pkgs, lib, ... }:
 let
   unstable = config.also.unstable;
+  blender-bin = config.also.inputs.blender-bin.defaultPackage.${pkgs.system};
 in
 {
   home = {
     packages = with pkgs; [
+      blender-bin
+
       #unstable
-      unstable.tdesktop unstable.blender unstable.super-slicer
+      unstable.tdesktop unstable.super-slicer
       unstable.jetbrains.idea-community
 
       chromium discord
@@ -139,7 +142,7 @@ in
     fish = {
       enable = true;
       promptInit = ''
-        any-nix-shell --info-right | source
+        any-nix-shell fish --info-right | source
       '';
       functions = {
         fish_greeting = "echo 'Welcome home, mistress'";

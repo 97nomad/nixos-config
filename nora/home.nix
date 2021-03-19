@@ -16,6 +16,10 @@
               type = types.attrs;
               default = unstable;
             };
+            also.inputs = mkOption {
+              type = types.attrs;
+              default = inputs;
+            };
           };
         }
         ./home-config.nix

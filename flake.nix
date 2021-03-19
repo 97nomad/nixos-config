@@ -9,7 +9,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, nixpkgs-unstable, ... }:
+  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, nixpkgs-unstable, blender-bin, ... }:
     let
       inherit (nixpkgs) lib;
       system = "x86_64-linux";
