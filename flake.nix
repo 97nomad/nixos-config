@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/20.09";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/master";
-    nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager/release-20.09";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -31,8 +30,7 @@
             ./nora/system.nix
             ./nora/hardware.nix
             ./nora/home.nix
-            "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
-            "${nixos-hardware}/dell/latitude/3480"
+            nixos-hardware.nixosModules.dell-latitude-3480
           ];
 
           hanekawa = buildSystem [
@@ -40,7 +38,6 @@
             ./hanekawa/system.nix
             ./hanekawa/hardware.nix
             ./hanekawa/home.nix
-            "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
           ];
         };
       };
