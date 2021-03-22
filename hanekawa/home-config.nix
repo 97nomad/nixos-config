@@ -110,12 +110,14 @@ in
     emacs = {
       enable = true;
       extraPackages = epkgs: with epkgs; [
-        magit company nix-mode rainbow-delimiters
+        magit company rainbow-delimiters
         helm dracula-theme fish-mode neotree elixir-mode
         lsp-elixir yaml-mode docker-compose-mode
         k8s-mode
 
         ivy counsel swiper
+
+        nix-mode company-nixos-options nixos-options
       ];
     };
 

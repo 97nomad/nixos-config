@@ -33,7 +33,6 @@
 ;; MELPA
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(package-initialize)
 
 ;; Нумерация строк
 (require 'linum)
@@ -48,6 +47,12 @@
 ;; Автодополнение
 (require 'company)
 (global-company-mode t)
+(setq company-dabbrev-downcase t)
+(setq company-minimum-prefix-length 0)
+(setq company-tooltip-limit 20)
+(setq company-tooltip-minimum-width 15)
+(add-to-list 'company-backends 'company-nixos-options)
+(global-set-key (kbd "C-<tab>") 'company-complete)
 
 ;; Не показывать предупреждение при нажатии A в dired
 (put 'dired-find-alternate-file 'disabled nil)

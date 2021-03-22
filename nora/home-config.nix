@@ -194,13 +194,15 @@ in
     emacs = {
       enable = true;
       extraPackages = epkgs: with epkgs; [
-        magit company nix-mode rainbow-delimiters
+        magit company rainbow-delimiters
         dracula-theme
 
         ivy counsel swiper counsel-tramp
 
         rust-mode lsp-mode lsp-ivy direnv
         yaml-mode
+
+        nixos-options company-nixos-options nix-mode
       ];
     };
 
