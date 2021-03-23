@@ -194,6 +194,8 @@ in
     emacs = {
       enable = true;
       extraPackages = epkgs: with epkgs; [
+        use-package
+
         magit company rainbow-delimiters
         dracula-theme
 

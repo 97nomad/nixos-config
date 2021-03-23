@@ -1,13 +1,10 @@
-(package-initialize)
+(eval-when-compile (require 'use-package))
 
 (custom-set-variables
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(blink-cursor-mode nil)
- '(initial-buffer-choice "~")
- '(package-selected-packages
-   (quote
-    (magit nix-mode rainbow-delimeters dracula-theme))))
+ '(initial-buffer-choice "~"))
 (custom-set-faces)
 
 ;; disable alarm
@@ -23,74 +20,83 @@
 (menu-bar-mode -1)
 
 ;; Тема и шрифты
-(load-theme 'dracula t)
+(use-package dracula-theme
+  :config
+  (load-theme 'dracula t))
 (set-face-attribute 'default nil
 		    :family "Fira Code"
 		    :height 100
 		    :weight 'normal
 		    :width 'normal)
 
-;; MELPA
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-
 ;; Нумерация строк
-(require 'linum)
-(line-number-mode t)
-(global-linum-mode t)
-(column-number-mode t)
-(setq linum-format " %d")
+(use-package linum
+  :config
+  (setq linum-format " %d")
+  (line-number-mode t)
+  (global-linum-mode t)
+  (column-number-mode t))
 
 ;; Отключение главного экрана
 (setq inhibit-startup-message nil)
 
 ;; Автодополнение
-(require 'company)
-(global-company-mode t)
-(setq company-dabbrev-downcase t)
-(setq company-minimum-prefix-length 0)
-(setq company-tooltip-limit 20)
-(setq company-tooltip-minimum-width 15)
-(add-to-list 'company-backends 'company-nixos-options)
-(global-set-key (kbd "C-<tab>") 'company-complete)
+(use-package company
+  :ensure t
+  :defer t
+  :init (global-company-mode)
+  :config
+  (setq company-idle-delay 0.5)
+  (setq company-dabbrev-domowncase nil)
+  (setq company-minimum-prefix-length 1)
+  (setq company-tooltip-limit 20)
+  (setq company-tooltip-minimum-width 15)
+  (add-to-list 'company-backends 'company-nixos-options)
+  :bind ("C-<tab>" . company-complete)
+  :diminish company-mode)
 
 ;; Не показывать предупреждение при нажатии A в dired
 (put 'dired-find-alternate-file 'disabled nil)
 
 ;; Радужные штуки с скобочками
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(use-package rainbow-delimeters
+  :hook (prog-mode-hook . rainbow-delimiters-mode)
+  )
 (show-paren-mode 1)
 (electric-pair-mode 1)
 
 ;; Ivy штуки
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
-(global-set-key "\C-s" 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-(global-set-key (kbd "C-c t") 'counsel-tramp)
-(global-set-key (kbd "<f6>") 'ivy-resume)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-set-key (kbd "<f1> f") 'counsel-describe-function)
-(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-(global-set-key (kbd "<f1> l") 'counsel-find-library)
-(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-(global-set-key (kbd "C-c g") 'counsel-git)
-(global-set-key (kbd "C-c j") 'counsel-git-grep)
-(global-set-key (kbd "C-c k") 'counsel-ag)
-(global-set-key (kbd "C-x l") 'counsel-locate)
-(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-(define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
-
+(use-package ivy
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  :bind (("\C-s" . swiper)
+	 ("C-c C-r" . 'ivy-resume)
+	 ("C-c t" . counsel-tramp)
+	 ("<f6>" . ivy-resume)
+	 ("M-x" . counsel-M-x)
+	 ("C-x C-f" . counsel-find-file)
+	 ("<f1> f" . counsel-describe-function)
+	 ("<f1> v" . counsel-describe-variable)
+	 ("<f1> l" . counsel-find-library)
+	 ("<f2> i" . counsel-info-lookup-symbol)
+	 ("<f2> u" . counsel-unicode-char)
+	 ("C-c k" . counsel-ag)
+	 ("C-x l" . counsel-locate))
+  :bind (:map minibuffer-local-map
+	      ("C-r" . counsel-minibuffer-history))
+  )
 ;; TRAMP штуки
 (setq tramp-default-method "sshx")
 
 ;; Rust штуки
-(setq lsp-rust-server 'rust-analyzer)
-(setq lsp-rust-analyzer-server-command "rust-analyzer")
-(add-hook 'rust-mode-hook #'lsp)
+(use-package rust-mode
+  :config
+  (setq lsp-rust-server 'rust-analyzer)
+  (setq lsp-rust-analyzer-server-command "rust-analyzer")
+  :hook (rust-mode-hook . #'lsp)
+  )
 
 ;; Няшные хоткеи
 ;; direnv
@@ -101,3 +107,4 @@
 ;; buffers
 (global-set-key (kbd "M-k") 'kill-this-buffer)
 (global-set-key (kbd "M-o") 'other-window)
+
