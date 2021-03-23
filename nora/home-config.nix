@@ -191,24 +191,7 @@ in
       ];
     };
 
-    emacs = {
-      enable = true;
-      extraPackages = epkgs: with epkgs; [
-        use-package
-
-        dired-subtree
-
-        magit company rainbow-delimiters
-        dracula-theme
-
-        ivy counsel swiper counsel-tramp
-
-        rust-mode lsp-mode lsp-ivy direnv
-        yaml-mode
-
-        nixos-options company-nixos-options nix-mode
-      ];
-    };
+    emacs = import ../config/emacs.nix;
 
     home-manager.enable = true;
   };

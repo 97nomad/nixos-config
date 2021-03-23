@@ -107,26 +107,7 @@ in
     };
 
 
-    emacs = {
-      enable = true;
-      extraPackages = epkgs: with epkgs; [
-        use-package
-
-        dired-subtree
-
-        magit company rainbow-delimiters
-        helm dracula-theme fish-mode neotree elixir-mode
-        lsp-elixir yaml-mode docker-compose-mode
-        k8s-mode
-
-        ivy counsel swiper
-
-        nix-mode company-nixos-options nixos-options
-      ];
-    };
-
-    home-manager.enable = true;
-  };
+    emacs = import ../config/emacs.nix;
 
   services = {
     emacs.enable = true;
