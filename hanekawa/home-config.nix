@@ -110,6 +110,10 @@ in
     emacs = {
       enable = true;
       extraPackages = epkgs: with epkgs; [
+        use-package
+
+        dired-subtree
+
         magit company rainbow-delimiters
         helm dracula-theme fish-mode neotree elixir-mode
         lsp-elixir yaml-mode docker-compose-mode

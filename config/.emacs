@@ -57,6 +57,10 @@
 
 ;; Не показывать предупреждение при нажатии A в dired
 (put 'dired-find-alternate-file 'disabled nil)
+(use-package dired-subtree
+  :bind (:map dired-mode-map
+	      ("i" . dired-subtree-insert)
+	      ("I" . dired-subtree-remove)))
 
 ;; Радужные штуки с скобочками
 (use-package rainbow-delimeters

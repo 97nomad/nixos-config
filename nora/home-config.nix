@@ -196,6 +196,8 @@ in
       extraPackages = epkgs: with epkgs; [
         use-package
 
+        dired-subtree
+
         magit company rainbow-delimiters
         dracula-theme
 
