@@ -109,6 +109,9 @@ in
 
     emacs = import ../config/emacs.nix;
 
+    home-manager.enable = true;
+  };
+
   services = {
     emacs.enable = true;
     emacs.socketActivation.enable = true;
