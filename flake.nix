@@ -6,9 +6,12 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/master";
     home-manager.url = "github:nix-community/home-manager/release-20.09";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    secrets.flake = false;
+    secrets.url = "path:secrets";
   };
 
-  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, nixpkgs-unstable, blender-bin, ... }:
+  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, nixpkgs-unstable, secrets, blender-bin, ... }:
     let
       inherit (nixpkgs) lib;
       system = "x86_64-linux";
@@ -38,6 +41,14 @@
             ./hanekawa/system.nix
             ./hanekawa/hardware.nix
             ./hanekawa/home.nix
+          ];
+
+          naota = buildSystem [
+            ./config/generic-configuration.nix
+            ./naota/system.nix
+            ./naota/hardware.nix
+            "${secrets}/naota.nix"
+            "${nixpkgs}/nixos/modules/profiles/qemu-guest.nix"
           ];
         };
       };
