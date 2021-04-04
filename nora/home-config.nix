@@ -23,7 +23,7 @@ in
       })
 
       # Viewers and editors
-      libreoffice
+      libreoffice thunderbird
       feh vlc zathura
       gimp freecad inkscape krita
       kicad openscad lmms
