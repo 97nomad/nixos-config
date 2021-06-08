@@ -59,8 +59,10 @@
     wacom.enable = true;
     libinput = {
       enable = true;
-      naturalScrolling = true;
-      disableWhileTyping = true;
+      touchpad = {
+        naturalScrolling = true;
+        disableWhileTyping = true;
+      };
     };
 
     displayManager.lightdm = {
@@ -94,8 +96,8 @@
   services.openssh.enable = true;
   environment.variables.MOZ_USE_XINPUT2 = "1";
   programs.dconf.enable = true;
-  services.gnome3.gnome-keyring.enable = true;
-  services.gnome3.at-spi2-core.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  services.gnome.at-spi2-core.enable = true;
 
   ## System version
   system.stateVersion = "20.09";

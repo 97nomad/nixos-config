@@ -112,3 +112,7 @@
 (global-set-key (kbd "M-k") 'kill-this-buffer)
 (global-set-key (kbd "M-o") 'other-window)
 
+;; Org-mode
+(global-set-key (kbd "C-c a") 'org-agenda)
+(custom-set-variables
+ '(org-agenda-files (quote ("~/Nextcloud/twilight.org"))))

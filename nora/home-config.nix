@@ -12,7 +12,7 @@ in
       unstable.tdesktop unstable.super-slicer
       unstable.jetbrains.idea-community
 
-      chromium discord
+      chromium discord pidgin
 
       flameshot blueman
 
@@ -233,13 +233,18 @@ in
 
   gtk = {
     enable = true;
-    iconTheme.package = pkgs.paper-icon-theme;
-    iconTheme.name = "Paper";
+    iconTheme.package = pkgs.gnome.adwaita-icon-theme;
+    iconTheme.name = "Adwaita";
     theme.package = pkgs.adapta-gtk-theme;
     theme.name = "Adapta-Nokto-Eta";
   };
   qt = {
     enable = true;
+    platformTheme = "gnome";
+    style = {
+      package = pkgs.adwaita-qt;
+      name = "adwaita-dark";
+    };
   };
 
   xsession = {

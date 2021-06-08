@@ -7,7 +7,7 @@ rec {
     ## System and generic packages
     use-package company rainbow-delimiters
     ivy counsel swiper counsel-tramp
-    lsp-mode lsp-ivy direnv
+    lsp-mode lsp-ui lsp-ivy direnv
 
     ## Git
     magit
@@ -19,7 +19,7 @@ rec {
     nix-mode nixos-options company-nixos-options
 
     ## Elixir
-    elixir-mode lsp-elixir
+    elixir-mode
 
     ## Rust
     rust-mode

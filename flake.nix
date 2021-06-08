@@ -2,9 +2,9 @@
   description = "Best nix waifu";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/20.09";
+    nixpkgs.url = "github:nixos/nixpkgs/release-21.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/master";
-    home-manager.url = "github:nix-community/home-manager/release-20.09";
+    home-manager.url = "github:nix-community/home-manager/release-21.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     secrets.flake = false;

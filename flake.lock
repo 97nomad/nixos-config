@@ -6,16 +6,31 @@
       },
       "locked": {
         "dir": "blender",
-        "lastModified": 1614285290,
-        "narHash": "sha256-Ng8KpafnFuuomB22b0UzvezgU3MnOnLLwuGKR68aDmo=",
+        "lastModified": 1622664035,
+        "narHash": "sha256-nBxL5pRYo3i51ZtHayZ/hZS1B4d0VG9mmiFKwpn5rTI=",
         "owner": "edolstra",
         "repo": "nix-warez",
-        "rev": "85546cc20e48cac2b8506f399dd6c40ad1ef2efe",
+        "rev": "d860e2709991620037892c6fb404abbc926b96b1",
         "type": "github"
       },
       "original": {
         "id": "blender-bin",
         "type": "indirect"
+      }
+    },
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1614513358,
+        "narHash": "sha256-LakhOx3S1dRjnh0b5Dg3mbZyH0ToC9I8Y2wKSkBaTzU=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "5466c5bbece17adaab2d82fae80b46e807611bf3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
       }
     },
     "home-manager": {
@@ -25,27 +40,27 @@
         ]
       },
       "locked": {
-        "lastModified": 1612902587,
-        "narHash": "sha256-VZ7Z1OMFf5ReObu3CCVBsC2DWloTYDjqW1onUKejVrE=",
+        "lastModified": 1622917919,
+        "narHash": "sha256-9gAIwbQyLhK78bEV648k4tfLK6JkYiPk9QdTECpLuOE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "209566c752c4428c7692c134731971193f06b37c",
+        "rev": "148d85ee8303444fb0116943787aa0b1b25f94df",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-20.09",
+        "ref": "release-21.05",
         "repo": "home-manager",
         "type": "github"
       }
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1616493443,
-        "narHash": "sha256-xMDBWCa7oXFU1pBr25Fza/uv+IciMHogJMQ6g+gHQG4=",
+        "lastModified": 1622521809,
+        "narHash": "sha256-7XcqrtrHDeaasKzg/ruroLsC2fb6Fi3aenCrv1+xVLk=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "758bc63af2bde87563f9c27710f3dcc16ff9096f",
+        "rev": "b2186d6c3cdc58fb3a8def0f608bcae61138cc6f",
         "type": "github"
       },
       "original": {
@@ -70,11 +85,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1616724808,
-        "narHash": "sha256-JLNPMfy8OBuj60q1AuZKBixi96hAM6y1m6uyn3Y9+2w=",
+        "lastModified": 1622921508,
+        "narHash": "sha256-pEW1dWZRKj6Lv1ln6xy1ckPTBV5pgM5LhpBt51NkIQM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "17885fe3dbfcc4f239657742b2e4fb7d8ff67827",
+        "rev": "87268f559dc02cd864b66b50329d31b94708a454",
         "type": "github"
       },
       "original": {
@@ -86,16 +101,32 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1603791972,
-        "narHash": "sha256-nj2SvACFH+NERpye1kudcuygCcvnsZYv26M2+wgM5vE=",
+        "lastModified": 1622918301,
+        "narHash": "sha256-Z0L6bTnKQdO+cxu6EitpIMjziMTUZf4UThfInJQNRis=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "cd63096d6d887d689543a0b97743d28995bc9bc3",
+        "rev": "54305f13e8a989e87838bde13757d73593fafc5e",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "20.09",
+        "ref": "release-21.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1617325113,
+        "narHash": "sha256-GksR0nvGxfZ79T91UUtWjjccxazv6Yh/MvEJ82v1Xmw=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "54c1e44240d8a527a8f4892608c4bce5440c3ecb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -107,19 +138,52 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "secrets": "secrets"
+        "secrets": "secrets",
+        "tg_scrum_poker": "tg_scrum_poker"
       }
     },
     "secrets": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-6GknnD3yNGns1qQ0xKXewjQHSp7TH1zberQvytMCrOk=",
+        "narHash": "sha256-9BZX0/mKa9K/ioVaRqZowHBinkOTm1/qXf3QVK+8vQA=",
         "path": "secrets",
         "type": "path"
       },
       "original": {
         "path": "secrets",
         "type": "path"
+      }
+    },
+    "tg_scrum_poker": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs_3",
+        "tg_scrum_poker": "tg_scrum_poker_2"
+      },
+      "locked": {
+        "lastModified": 1619338186,
+        "narHash": "sha256-LgdUY/18z1HUisPXeQ9fvhkvU+0rw3pNDiPgpZ+lXKs=",
+        "owner": "97nomad",
+        "repo": "TgScrumPoker",
+        "rev": "c713090aed2622c95b9d91597c07a1ec35d617b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "97nomad",
+        "repo": "TgScrumPoker",
+        "type": "github"
+      }
+    },
+    "tg_scrum_poker_2": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-Sz/4jMkLp01JuFLLSGBef8UtiBp7n6fHQdNctDZr//A=",
+        "type": "tarball",
+        "url": "https://github.com/97nomad/TgScrumPoker/releases/download/0.3.0/tg_scrum_poker-0.3.0.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/97nomad/TgScrumPoker/releases/download/0.3.0/tg_scrum_poker-0.3.0.tar.gz"
       }
     }
   },

@@ -64,7 +64,9 @@
     };
     pulseaudio = {
       enable = true;
-      package = pkgs.pulseaudioFull;
+      package = pkgs.pulseaudioFull.override {
+        jackaudioSupport = true;
+      };
       support32Bit = true;
       extraModules = [ pkgs.pulseaudio-modules-bt ];
       extraConfig = ''
