@@ -28,7 +28,7 @@
   ];
 
   ## Fix touchpad buttons
-  services.xserver.libinput.additionalOptions = ''
+  services.xserver.libinput.touchpad.additionalOptions = ''
     Option "ButtonMapping" "1 0 3 4 5 6 7"
   '';
 

@@ -7,7 +7,7 @@ in
     packages = with pkgs; [
       chromium unstable.tdesktop
 
-      libreoffice
+      libreoffice inkscape
 
       gnome3.nautilus gnome3.file-roller
       gnome3.dconf
@@ -27,7 +27,7 @@ in
 
       any-nix-shell
 
-      unstable.jetbrains.idea-community postman
+      unstable.jetbrains.idea-community postman thunderbird
 
       (writeShellScriptBin "ee" ''
         ${emacs}/bin/emacsclient -s /run/user/1000/emacs/server -c $@
@@ -92,7 +92,7 @@ in
 
     direnv = {
       enable = true;
-      enableNixDirenvIntegration= true;
+      nix-direnv.enable = true;
       enableFishIntegration = true;
     };
 
