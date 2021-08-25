@@ -26,7 +26,7 @@ in
       libreoffice thunderbird
       feh vlc zathura
       gimp freecad inkscape krita
-      kicad openscad lmms
+      kicad openscad
 
       # gnome stuff
       gnome3.nautilus gnome3.file-roller 
@@ -49,14 +49,11 @@ in
         pass-otp pass-genphrase pass-audit
       ]))
 
-      #unstable.jetbrains.idea-community
+      unstable.jetbrains.idea-community
 
       any-nix-shell
 
-      kdeconnect nix-index nixops ag
-
-      ## Music
-      vmpk qsynth qjackctl
+      kdeconnect nix-index ag
 
       ## Video and photo
       openshot-qt
@@ -72,8 +69,10 @@ in
       ## SDR
       urh gqrx rtl_433
 
-      ## Piano
-      lenmus musescore rhythmbox
+      ## audio
+      vmpk qsynth lmms reaper carla
+
+      musescore rhythmbox
 
       # Better Emacs
       (writeShellScriptBin "ee" ''
@@ -151,7 +150,7 @@ in
 
     direnv = {
       enable = true;
-      enableNixDirenvIntegration= true;
+      nix-direnv.enable = true;
       enableFishIntegration = true;
     };
 

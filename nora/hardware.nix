@@ -12,6 +12,9 @@
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "modprobe.blacklist=dvb_usb_rtl28xxu" ];
+  boot.extraModprobeConfig = ''
+    options snd-hda-intel model=dell-headset-multi
+  '';
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/8641af94-8ca3-4e82-9d47-1c5b790b2a00";

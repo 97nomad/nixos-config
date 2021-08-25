@@ -42,13 +42,13 @@
 
     # RTL-SDR
     libusb rtl-sdr gqrx
+
+    libudev
+
+    # Audio
+    pavucontrol pulseaudio alsaUtils
   ];
 
-  ## Sound and Video
-  sound = {
-    enable = true;
-    enableOSSEmulation = true;
-  };
   hardware = {
     cpu.intel.updateMicrocode = true;
     opengl = {
@@ -62,30 +62,39 @@
         intel-media-driver
       ];
     };
-    pulseaudio = {
+  };
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa = {
       enable = true;
-      package = pkgs.pulseaudioFull.override {
-        jackaudioSupport = true;
-      };
       support32Bit = true;
-      extraModules = [ pkgs.pulseaudio-modules-bt ];
-      extraConfig = ''
-        load-module module-switch-on-connect
-
-        load-module module-jack-sink channels=2
-        load-module module-jack-source channels=2
-        set-default-sink jack_out
-      '';
     };
-  };
+    pulse.enable = true;
+    jack.enable = true;
 
-  services.jack = {
-    jackd.enable = true;
-    alsa.enable = false;
-    loopback.enable = true;
-  };
-  systemd.user.services.pulseaudio.environment = {
-    JACK_PROMISCUOUS_SERVER = "jackaudio";
+    media-session.config.bluez-monitor.rules = [
+      {
+        matches = [ { "device.name" = "~bluez_card.*"; } ];
+        actions = {
+          "update-props" = {
+            "bluez5.reconnect-profiles" = [ "hfp_hf" "hsp_hs" "a2dp_sink" ];
+            "bluez5.msbc-support" = true;
+            "bluez5.sbc-xq-support" = true;
+          };
+        };
+      }
+      {
+        matches = [
+          { "node.name" = "~bluez_input.*"; }
+          { "node.name" = "~bluez_output.*"; }
+        ];
+        actions = {
+          "node.pause-on-idle" = false;
+        };
+      }
+    ];
   };
 
   ## Users
