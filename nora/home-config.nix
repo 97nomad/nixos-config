@@ -70,7 +70,7 @@ in
       urh gqrx rtl_433
 
       ## audio
-      vmpk qsynth lmms reaper carla
+      vmpk qsynth lmms reaper carla unstable.easyeffects
 
       musescore rhythmbox
 

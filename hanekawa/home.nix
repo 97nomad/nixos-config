@@ -22,6 +22,7 @@
             };
           };
         }
+        inputs.nix-doom-emacs.hmModule
         ./home-config.nix
       ];
     };
