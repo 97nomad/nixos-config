@@ -86,7 +86,6 @@ in
 
     file = {
       ".config/i3status/config".source = ../config/i3status;
-      ".emacs".source = ../config/.emacs;
     };
 
     keyboard = {
@@ -190,14 +189,19 @@ in
       ];
     };
 
-    emacs = import ../config/emacs.nix;
+    doom-emacs = {
+      enable = true;
+      doomPrivateDir = ../config/doom.d;
+    };
 
     home-manager.enable = true;
   };
 
   services = {
-    emacs.enable = true;
-    emacs.socketActivation.enable = true;
+    emacs = {
+      enable = true;
+      socketActivation.enable = true;
+    };
 
     blueman-applet.enable = true;
 

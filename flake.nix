@@ -4,14 +4,17 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-21.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
     home-manager.url = "github:nix-community/home-manager/release-21.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-doom-emacs.url = "github:vlaci/nix-doom-emacs/master";
 
     secrets.flake = false;
     secrets.url = "path:secrets";
   };
 
-  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, nixpkgs-unstable, secrets, blender-bin, ... }:
+  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, nixpkgs-unstable, secrets, blender-bin, nix-doom-emacs, ... }:
     let
       inherit (nixpkgs) lib;
       system = "x86_64-linux";
