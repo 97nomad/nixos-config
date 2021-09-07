@@ -40,7 +40,6 @@ in
 
     file = {
       ".config/i3status/config".source = ../config/i3status;
-      ".emacs".source = ../config/.emacs;
     };
 
     keyboard = {
@@ -106,8 +105,10 @@ in
       extensions = [ pkgs.vscode-extensions.bbenoist.Nix ];
     };
 
-
-    emacs = import ../config/emacs.nix;
+    doom-emacs = {
+      enable = true;
+      doomPrivateDir = ../config/doom.d;
+    };
 
     home-manager.enable = true;
   };
