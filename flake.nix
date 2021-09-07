@@ -10,11 +10,13 @@
 
     nix-doom-emacs.url = "github:vlaci/nix-doom-emacs/master";
 
+    tg-scrum-poker.url = "github:97nomad/TgScrumPoker";
+
     secrets.flake = false;
     secrets.url = "path:secrets";
   };
 
-  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, nixpkgs-unstable, secrets, blender-bin, nix-doom-emacs, ... }:
+  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, nixpkgs-unstable, secrets, blender-bin, nix-doom-emacs, tg-scrum-poker, ... }:
     let
       inherit (nixpkgs) lib;
       system = "x86_64-linux";

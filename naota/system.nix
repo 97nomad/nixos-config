@@ -52,7 +52,7 @@
       bind *:80
 
       use_backend http_storage if { hdr(host) -i storage.nekomaidtails.xyz }
-      redirect scheme https if { hdr(host) -i octopi.nekomaidtails.xyz }
+      use_backend http_octopi if { hdr(host) -i octopi.nekomaidtails.xyz }
       use_backend http_vespa if { hdr(host) -i vespa.nekomaidtails.xyz }
 
     frontend https
@@ -73,6 +73,10 @@
       backend bk_storage
         mode tcp
         server storage.nekomaidtails.xyz 192.168.1.160:443
+
+      backend http_octopi
+        mode http
+        server storage.nekomaidtails.xyz 192.168.1.242:80
 
       backend bk_octopi
         mode tcp
