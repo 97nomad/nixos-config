@@ -1,6 +1,7 @@
 .PHONY: naota
 
 NAOTA_HOST = root@naota.nekomaidtails.xyz
+VESPA_HOST = root@vespa.lan
 
 build:
 	cp config/user-config.nix ~/.config/nixpkgs/config.nix
@@ -8,6 +9,9 @@ build:
 
 naota:
 	nixos-rebuild --flake ".#naota" --target-host $(NAOTA_HOST) --build-host localhost switch
+
+vespa:
+	nixos-rebuild --flake ".#vespa" --target-host ${VESPA_HOST} --build-host localhost switch
 
 system-gc:
 	nix-collect-garbage

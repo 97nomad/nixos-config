@@ -465,7 +465,8 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "secrets": "secrets",
-        "tg-scrum-poker": "tg-scrum-poker"
+        "tg-scrum-poker": "tg-scrum-poker",
+        "valetudoMapCard": "valetudoMapCard"
       }
     },
     "rotate-text": {
@@ -526,6 +527,23 @@
       "original": {
         "type": "tarball",
         "url": "https://github.com/97nomad/TgScrumPoker/releases/download/0.3.0/tg_scrum_poker-0.3.0.tar.gz"
+      }
+    },
+    "valetudoMapCard": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1628784594,
+        "narHash": "sha256-PIv9wVqlj4SH+/dUev1YssYB/rZ8SB8CNiB/n6OIeiQ=",
+        "owner": "TheLastProject",
+        "repo": "lovelace-valetudo-map-card",
+        "rev": "64674444ccb48c17d5febdf91761caed867bdc27",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TheLastProject",
+        "ref": "master",
+        "repo": "lovelace-valetudo-map-card",
+        "type": "github"
       }
     }
   },

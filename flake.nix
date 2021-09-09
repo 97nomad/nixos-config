@@ -12,6 +12,9 @@
 
     tg-scrum-poker.url = "github:97nomad/TgScrumPoker";
 
+    valetudoMapCard.url = "github:TheLastProject/lovelace-valetudo-map-card/master";
+    valetudoMapCard.flake = false;
+
     secrets.flake = false;
     secrets.url = "path:secrets";
   };
@@ -30,6 +33,18 @@
       };
       buildConfig = modules: { inherit modules system specialArgs; };
       buildSystem = modules: lib.nixosSystem (buildConfig modules);
+
+      armSystem = "aarch64-linux";
+      armSpecialArgs = {
+        inherit inputs;
+        nixpkgs.config.allowUnfree = true;
+        unstable = (import nixpkgs-unstable {
+          system = armSystem;
+          config = { allowUnfree = true; };
+        });
+      };
+      armBuildConfig = modules: { inherit modules; system = armSystem; specialArgs = armSpecialArgs; };
+      armBuildSystem = modules: lib.nixosSystem (armBuildConfig modules);
     in
       {
         nixosConfigurations = {
@@ -54,6 +69,11 @@
             ./naota/hardware.nix
             "${secrets}/naota.nix"
             "${nixpkgs}/nixos/modules/profiles/qemu-guest.nix"
+          ];
+
+          vespa = armBuildSystem [
+            ./vespa/configuration.nix
+            ./vespa/hardware-configuration.nix
           ];
         };
       };

@@ -15,6 +15,7 @@
   boot.extraModprobeConfig = ''
     options snd-hda-intel model=dell-headset-multi
   '';
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/8641af94-8ca3-4e82-9d47-1c5b790b2a00";
