@@ -2,6 +2,7 @@ args @ { config, pkgs, lib, ... }:
 let
   unstable = config.also.unstable;
   blender-bin = config.also.inputs.blender-bin.defaultPackage.${pkgs.system};
+  waveform = config.also.inputs.waveform.defaultPackage.${pkgs.system};
 in
 {
   home = {
@@ -70,7 +71,7 @@ in
       urh gqrx rtl_433
 
       ## audio
-      vmpk qsynth lmms reaper carla unstable.easyeffects
+      vmpk qsynth lmms reaper carla unstable.easyeffects waveform
 
       musescore rhythmbox
 

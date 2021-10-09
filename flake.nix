@@ -12,6 +12,9 @@
 
     tg-scrum-poker.url = "github:97nomad/TgScrumPoker";
 
+    waveform.url = "path:packages/waveform";
+    waveform.inputs.nixpkgs.follows = "nixpkgs";
+
     valetudoMapCard.url = "github:TheLastProject/lovelace-valetudo-map-card/master";
     valetudoMapCard.flake = false;
 
