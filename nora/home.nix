@@ -24,6 +24,7 @@
         }
         inputs.nix-doom-emacs.hmModule
         ./home-config.nix
+        inputs.vst_collection.nixosModule.${pkgs.system}
       ];
     };
   };

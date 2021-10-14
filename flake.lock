@@ -6,16 +6,28 @@
       },
       "locked": {
         "dir": "blender",
-        "lastModified": 1622664035,
-        "narHash": "sha256-nBxL5pRYo3i51ZtHayZ/hZS1B4d0VG9mmiFKwpn5rTI=",
+        "lastModified": 1633179550,
+        "narHash": "sha256-fmpcBpCchJiFsQDX5pSD0Ulcnw/WWg87f3itMpw1cdI=",
         "owner": "edolstra",
         "repo": "nix-warez",
-        "rev": "d860e2709991620037892c6fb404abbc926b96b1",
+        "rev": "6d9e2b9ce2269b63c8cfe1b20a71e0d1158f9818",
         "type": "github"
       },
       "original": {
         "id": "blender-bin",
         "type": "indirect"
+      }
+    },
+    "debFile": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-J3WLqtNr5d5+H7XhfwPbYj6YPfBr7DQ+LjdrSm8VoiI=",
+        "path": "/home/nommy/nixres/waveform/waveform_64bit_v11.5.18.deb",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/nommy/nixres/waveform/waveform_64bit_v11.5.18.deb",
+        "type": "path"
       }
     },
     "doom-emacs": {
@@ -177,6 +189,36 @@
         "type": "github"
       }
     },
+    "flake-utils_3": {
+      "locked": {
+        "lastModified": 1631561581,
+        "narHash": "sha256-3VQMV5zvxaVLvqqUrNz3iJelLw30mIVSfZmAaauM3dA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "7e5bf3925f6fbdfaf50a2a7ca0be2879c4261d19",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_4": {
+      "locked": {
+        "lastModified": 1631561581,
+        "narHash": "sha256-3VQMV5zvxaVLvqqUrNz3iJelLw30mIVSfZmAaauM3dA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "7e5bf3925f6fbdfaf50a2a7ca0be2879c4261d19",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -184,11 +226,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1630076227,
-        "narHash": "sha256-p3YdtqSPLnMudWsLMgd6XMEhQKB2oz1hvDkHtOlz5/Q=",
+        "lastModified": 1633596850,
+        "narHash": "sha256-5+qVLYvfOropjLAvpQs/APtD8eYnEIbAd9a36lGHZM0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f5adb9be829f487f99bcc0f1884f74ddb85f70c8",
+        "rev": "49695f33aac22358b59e49c94fe6472218e5d766",
         "type": "github"
       },
       "original": {
@@ -254,11 +296,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1631525163,
-        "narHash": "sha256-sHwZa4C1edJn1ngPtlHGJQatvh1aiAeLEqn2i1wcph4=",
+        "lastModified": 1633793047,
+        "narHash": "sha256-XSMlHMVPKwcEqyHGdFj/ZeGMeZeKNwVExOfLlxcg4oE=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "a387b870f809ca62edb231ded669302d389a6401",
+        "rev": "3aabf78bfcae62f5f99474f2ebbbe418f1c6e54f",
         "type": "github"
       },
       "original": {
@@ -268,26 +310,26 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1606086654,
-        "narHash": "sha256-VFl+3eGIMqNp7cyOMJ6TjM/+UcsLKtodKoYexrlTJMI=",
+        "lastModified": 1632918953,
+        "narHash": "sha256-XY3TKBfhP7wCu/SeqrwIkTWkyYHy5W1yRR8pxyzRY9Y=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "19db3e5ea2777daa874563b5986288151f502e27",
+        "rev": "ee90403e147b181300dffca5b0afa405e14f1945",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
-        "ref": "nixos-20.09",
+        "ref": "nixos-21.05",
         "type": "indirect"
       }
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1631381596,
-        "narHash": "sha256-Xk91RO0uMyul8fWo3RP7WqEP5bsKUVucJRgLZgascAo=",
+        "lastModified": 1633971123,
+        "narHash": "sha256-WmI4NbH1IPGFWVkuBkKoYgOnxgwSfWDgdZplJlQ93vA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "f6e9e908ccbcabb365cb5434a4a38dd8c996fc72",
+        "rev": "e4ef597edfd8a0ba5f12362932fc9b1dd01a0aef",
         "type": "github"
       },
       "original": {
@@ -314,11 +356,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1631523195,
-        "narHash": "sha256-cP4d/eyvHWSmcZVAyz6coY+WpXM2qkPbrSsFxJEcJn0=",
+        "lastModified": 1634115022,
+        "narHash": "sha256-K9DZMQ47VRrg9gtTPwex5p0E8LnwM/dDkNe7AQW0qj0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "9a3277af47a3cbaf855e413e4c9277240c426916",
+        "rev": "564cb4d81d4f734dd068684adec5a60077397fe9",
         "type": "github"
       },
       "original": {
@@ -466,7 +508,9 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "secrets": "secrets",
         "tg-scrum-poker": "tg-scrum-poker",
-        "valetudoMapCard": "valetudoMapCard"
+        "valetudoMapCard": "valetudoMapCard",
+        "vst_collection": "vst_collection",
+        "waveform": "waveform"
       }
     },
     "rotate-text": {
@@ -488,13 +532,16 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-w1hN4nuUrO3tTgs08DhgjvipKF4PfumcQ3mQoGARKaM=",
-        "path": "secrets",
-        "type": "path"
+        "dir": "secrets",
+        "lastModified": 1633792325,
+        "narHash": "sha256-QjchKWDI/sRzSppMUljbc3zgsHSSk+CaVI2gL46XuEo=",
+        "type": "git",
+        "url": "file:///home/nommy/nixos?dir=secrets"
       },
       "original": {
-        "path": "secrets",
-        "type": "path"
+        "dir": "secrets",
+        "type": "git",
+        "url": "file:///home/nommy/nixos?dir=secrets"
       }
     },
     "tg-scrum-poker": {
@@ -544,6 +591,54 @@
         "ref": "master",
         "repo": "lovelace-valetudo-map-card",
         "type": "github"
+      }
+    },
+    "vst2": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-pLeJUJ1FiNOewtZIwnds8xIGHLaT8YbeKwaeQuhS7iA=",
+        "path": "/home/nommy/nixres/vst_collection",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/nommy/nixres/vst_collection",
+        "type": "path"
+      }
+    },
+    "vst_collection": {
+      "inputs": {
+        "flake-utils": "flake-utils_3",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "vst2": "vst2"
+      },
+      "locked": {
+        "narHash": "sha256-l6ZPICTXyj7ZY1oc+DemVJ5srXUi7jysqVzBOFjZuGA=",
+        "path": "packages/vst_collection",
+        "type": "path"
+      },
+      "original": {
+        "path": "packages/vst_collection",
+        "type": "path"
+      }
+    },
+    "waveform": {
+      "inputs": {
+        "debFile": "debFile",
+        "flake-utils": "flake-utils_4",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "narHash": "sha256-rJ6Tu3wnH2iMjjOhXa95FPqXNJHdrJbmxg3jKsqb9tc=",
+        "path": "packages/waveform",
+        "type": "path"
+      },
+      "original": {
+        "path": "packages/waveform",
+        "type": "path"
       }
     }
   },

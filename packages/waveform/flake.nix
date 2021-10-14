@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
 
-    debFile.url = "path:packages/waveform/waveform_64bit_v11.5.18.deb";
+    debFile.url = "path:/home/nommy/nixres/waveform/waveform_64bit_v11.5.18.deb";
     debFile.flake = false;
   };
 
@@ -43,5 +43,5 @@
           ln -s $out/usr/bin/Waveform11 $out/bin/
         '';
       };
-    }; in with flake-utils.lib; eachSystem defaultSystems out;
+    }; in with flake-utils.lib; eachSystem ["x86_64-linux"] out;
 }
