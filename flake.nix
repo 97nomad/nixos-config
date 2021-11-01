@@ -53,6 +53,7 @@
         nixosConfigurations = {
           nora = buildSystem [
             ./config/generic-configuration.nix
+            ./config/sway/system.nix
             ./nora/system.nix
             ./nora/hardware.nix
             ./nora/home.nix

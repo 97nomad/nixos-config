@@ -47,22 +47,42 @@
 
     # Audio
     pavucontrol pulseaudio alsaUtils
+    alsa-lib freetype gcc11
   ];
 
   hardware = {
+    enableRedistributableFirmware = true;
     cpu.intel.updateMicrocode = true;
     opengl = {
       enable = true;
+      setLdLibraryPath = true;
+      driSupport = true;
       driSupport32Bit = true;
-      extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
       extraPackages = with pkgs; [
+        amdvlk
+        intel-media-driver
+        libva
+        libvdpau
+        libvdpau-va-gl
+        mesa
+        rocm-opencl-icd
         vaapiIntel
         vaapiVdpau
-        libvdpau-va-gl
+      ];
+      extraPackages32 = with pkgs; [
+        driversi686Linux.amdvlk
         intel-media-driver
+        libva
+        libvdpau
+        driversi686Linux.libvdpau-va-gl
+        driversi686Linux.mesa
+        rocm-opencl-icd
+        driversi686Linux.vaapiIntel
+        driversi686Linux.vaapiVdpau
       ];
     };
   };
+  services.xserver.videoDrivers = [ "intel" ];
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -73,6 +93,18 @@
     };
     pulse.enable = true;
     jack.enable = true;
+
+    config.pipewire = {
+      "context.properties" = {
+        "default.clock.allowed-rates" = [ 48000 44100 ];
+      };
+    };
+
+#    config.pipewire-pulse = {
+#      "context.exec" = [
+#        { path = "pactl"; args = "module-switch-on-connect"; }
+#      ];
+#    };
 
     media-session.config.bluez-monitor.rules = [
       {
@@ -128,6 +160,34 @@
   programs.adb.enable = true;
 
   virtualisation.docker.enable = false;
+
+  ## Graphics
+  services.xserver = {
+    enable = true;
+    layout = "us,ru";
+    xkbOptions = "ctrl:nocaps,grp:toggle,grp_led:caps";
+
+    wacom.enable = true;
+    libinput = {
+      enable = true;
+      touchpad = {
+        naturalScrolling = true;
+        disableWhileTyping = true;
+      };
+    };
+
+    displayManager.lightdm = {
+      enable = true;
+      background = "/usr/share/wallpaper.png";
+      greeter.enable = true;
+      greeters.gtk = {
+        iconTheme.package = pkgs.paper-icon-theme;
+        iconTheme.name = "Paper";
+        theme.package = pkgs.adapta-gtk-theme;
+        theme.name = "Adapta-Nokto-Eta";
+      };
+    };
+  };
 
   ## TFTP
   services.tftpd = {

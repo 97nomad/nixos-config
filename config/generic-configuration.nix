@@ -51,38 +51,6 @@
     package = pkgs.bluezFull;
   };
 
-    ## Graphics
-  services.xserver = {
-    enable = true;
-    layout = "us,ru";
-    xkbOptions = "ctrl:nocaps,grp:toggle,grp_led:caps";
-
-    wacom.enable = true;
-    libinput = {
-      enable = true;
-      touchpad = {
-        naturalScrolling = true;
-        disableWhileTyping = true;
-      };
-    };
-
-    displayManager.lightdm = {
-      enable = true;
-      background = "/usr/share/wallpaper.png";
-      greeter.enable = true;
-      greeters.gtk = {
-        iconTheme.package = pkgs.paper-icon-theme;
-        iconTheme.name = "Paper";
-        theme.package = pkgs.adapta-gtk-theme;
-        theme.name = "Adapta-Nokto-Eta";
-      };
-    };
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3-gaps;
-    };
-  };
-
   ## Screen brightness
   programs.light.enable = true;
   services.actkbd = {

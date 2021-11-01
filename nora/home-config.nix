@@ -33,24 +33,27 @@ in
       gnome3.nautilus gnome3.file-roller 
       gnome3.dconf gnome3.gvfs ffmpeg ffmpegthumbnailer
       gst_all_1.gst-libav unrar gnome3.eog gnome3.shotwell
+      caffeine-ng font-manager
 
       arandr rofi rofi-pass xsecurelock xss-lock
       xautolock xdotool pwgen
 
       # fonts
-      noto-fonts fira-code
+      noto-fonts fira-code nerdfonts
 
       # themes
       adapta-gtk-theme adapta-kde-theme
 
-      git direnv gnupg vim i3status
+      git direnv gnupg vim
       htop gksu nextcloud-client browserpass
 
       (pass.withExtensions(e: with e; [
         pass-otp pass-genphrase pass-audit
       ]))
 
+      # dev
       unstable.jetbrains.idea-community
+      swiProlog
 
       any-nix-shell
 
@@ -85,10 +88,6 @@ in
       '')
     ];
 
-    file = {
-      ".config/i3status/config".source = ../config/i3status;
-    };
-
     keyboard = {
       layout = "us,ru";
       options = [ "ctrl:nocaps" "grp:toggle" "grp_led:caps" ];
@@ -102,6 +101,14 @@ in
       matchBlocks.vespa = {
         hostname = "storage.nekomaidtails.xyz";
         identityFile = "~/.ssh/id_rsa";
+      };
+    };
+
+    lsd = {
+      enable = true;
+      enableAliases = true;
+      settings = {
+        dereference = false;
       };
     };
 
@@ -133,7 +140,24 @@ in
           "italic" = { "family" = family; };
           "bold" = { "family" = family; };
           "bold_italic" = { "family" = family; };
-          "size" = 6;
+        };
+        # Doom One theme from
+        # https://github.com/eendroroy/alacritty-theme/blob/master/themes/doom_one.yml
+        "colors" = {
+          "primary" = {
+            "background" = "0x282c34";
+            "foreground" = "0xbbc2cf";
+          };
+          "normal" = {
+            "black" = "0x282c34";
+            "red" = "0xff6c6b";
+            "green" = "0x98be65";
+            "yellow" = "0xecbe7b";
+            "blue" = "0x51afef";
+            "magenta" = "0xc678dd";
+            "cyan" = "0x46d9ff";
+            "white" = "0xbbc2cf";
+          };
         };
       };
     };
@@ -151,6 +175,7 @@ in
     direnv = {
       enable = true;
       nix-direnv.enable = true;
+      nix-direnv.enableFlakes = true;
       enableFishIntegration = true;
     };
 
@@ -223,40 +248,8 @@ in
       '';
     };
 
-    screen-locker = {
-      enable = true;
-      lockCmd = "${pkgs.xsecurelock}/bin/xsecurelock";
-      xautolockExtraOptions = [
-        "-lockaftersleep"
-        "-detectsleep"
-      ];
-    };
-
     flameshot.enable = true;
   };
 
-  gtk = {
-    enable = true;
-    iconTheme.package = pkgs.gnome.adwaita-icon-theme;
-    iconTheme.name = "Adwaita";
-    theme.package = pkgs.adapta-gtk-theme;
-    theme.name = "Adapta-Nokto-Eta";
-  };
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = {
-      package = pkgs.adwaita-qt;
-      name = "adwaita-dark";
-    };
-  };
-
-  xsession = {
-    enable = true;
-    windowManager = {
-      i3.enable = true;
-      i3.package = pkgs.i3-gaps;
-      i3.config = import ../config/i3-config.nix args;
-    };
-  };
+  fonts.fontconfig.enable = true;
 }

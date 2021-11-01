@@ -156,7 +156,7 @@ in
     windowManager = {
       i3.enable = true;
       i3.package = pkgs.i3-gaps;
-      i3.config = import ../config/i3-config.nix args;
+      i3.config = import ../config/i3/i3-config.nix args;
     };
   };
 }
