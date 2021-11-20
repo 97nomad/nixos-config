@@ -15,11 +15,14 @@
     waveform.url = "path:packages/waveform";
     waveform.inputs.nixpkgs.follows = "nixpkgs";
 
+    vst_collection.url = "path:packages/vst_collection";
+    vst_collection.inputs.nixpkgs.follows = "nixpkgs";
+
     valetudoMapCard.url = "github:TheLastProject/lovelace-valetudo-map-card/master";
     valetudoMapCard.flake = false;
 
+    secrets.url = "/home/nommy/nixres/secrets";
     secrets.flake = false;
-    secrets.url = "path:secrets";
   };
 
   outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, nixpkgs-unstable, secrets, blender-bin, nix-doom-emacs, tg-scrum-poker, ... }:

@@ -46,6 +46,7 @@ in
 
       git direnv gnupg vim
       htop gksu nextcloud-client browserpass
+      unzip
 
       (pass.withExtensions(e: with e; [
         pass-otp pass-genphrase pass-audit
@@ -74,7 +75,9 @@ in
       urh gqrx rtl_433
 
       ## audio
-      vmpk qsynth lmms reaper carla unstable.easyeffects waveform
+      vmpk qsynth lmms reaper carla unstable.easyeffects
+      waveform
+      yabridge yabridgectl wine
 
       musescore rhythmbox
 

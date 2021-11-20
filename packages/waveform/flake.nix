@@ -11,11 +11,13 @@
 
   outputs = { self, nixpkgs, flake-utils, debFile }:
     let out = system:
-    let pkgs = nixpkgs.legacyPackages."${system}";
+    let
+      pkgs = nixpkgs.legacyPackages."${system}";
+      version = "11.5.18";
     in {
       defaultPackage = pkgs.stdenv.mkDerivation {
         name = "Waveform11";
-        version = "11.5.18";
+        inherit version;
         src = debFile;
 
         nativeBuildInputs = with pkgs; [

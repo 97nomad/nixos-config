@@ -24,8 +24,8 @@
         }
         inputs.nix-doom-emacs.hmModule
         ./home-config.nix
-        inputs.vst_collection.nixosModule.${pkgs.system}
         ../config/sway/home.nix
+        inputs.vst_collection.nixosModule.${pkgs.system}
       ];
     };
   };
