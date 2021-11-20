@@ -58,6 +58,7 @@ rec {
     placeholder =     { border = "#EAD49B"; background = "#1E272B"; text = "#EAD49B"; indicator = "#78824B"; childBorder = "#78824B"; };
   };
 
+  bindkeysToCode = true;
   keybindings =
   let
     mod = modifier;
