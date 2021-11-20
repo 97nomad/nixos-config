@@ -1,7 +1,6 @@
 { config, pkgs, lib, inputs, unstable, ... }:
 
 let
-#  unstable = inputs.unstable;
   valetudoMapCard = inputs.valetudoMapCard;
   miniMediaPlayerCard = builtins.fetchurl {
     url = "https://github.com/kalkih/mini-media-player/releases/download/v1.12.0/mini-media-player-bundle.js";
@@ -136,7 +135,7 @@ in
     hostName = "storage.nekomaidtails.xyz";
     https = true;
     maxUploadSize = "16G";
-    package = unstable.nextcloud22;
+    package = pkgs.nextcloud22;
 
     autoUpdateApps.enable = true;
     autoUpdateApps.startAt = "05:00:00";
@@ -344,12 +343,6 @@ in
       }];
 
       camera = [
-        {
-          platform = "mjpeg";
-          name = "OctoPrint";
-          still_image_url = "https://octopi.nekomaidtails.xyz/webcam/?action=snapshot";
-          mjpeg_url = "https://octopi.nekomaidtails.xyz/webcam/?action=stream";
-        }
         {
           platform = "generic";
           name = "Sagiri";
