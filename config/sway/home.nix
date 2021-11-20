@@ -61,7 +61,7 @@ args @ { config, lib, pkgs, ... }:
 
           modules = {
             "clock" = {
-              format = "{:%T}";
+              format = "{:%Y-%m-%d %T}";
               interval = 5;
             };
             "battery" = {
@@ -122,13 +122,6 @@ args @ { config, lib, pkgs, ... }:
     wrapperFeatures.gtk = true;
 
     config = import ./sway-config.nix args;
-  };
-
-  xsession = {
-    pointerCursor = {
-      package = pkgs.paper-icon-theme;
-      name = "Paper";
-    };
   };
 
   gtk = {
