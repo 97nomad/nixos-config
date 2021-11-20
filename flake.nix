@@ -82,6 +82,11 @@
             ./vespa/configuration.nix
             ./vespa/hardware-configuration.nix
           ];
+
+          senku = armBuildSystem [
+            ./senku/configuration.nix
+            ./senku/hardware-configuration.nix
+          ];
         };
       };
 }
