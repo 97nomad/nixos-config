@@ -1,6 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
+let
+  secrets = (import ./secrets.nix) {};
+in
 {
+  imports = [ inputs.tg-scrum-poker.nixosModule.x86_64-linux ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -31,6 +36,11 @@
   networking.firewall.enable = true;
   networking.firewall.allowedTCPPorts = [ 22 80 443 ];
   networking.firewall.allowedUDPPorts = [ 51820 ];
+
+  services.tgScrumPoker = {
+    enable = true;
+    token = secrets.tgScrumPoker.token;
+  };
 
   ## HAProxy
   services.haproxy.enable = true;

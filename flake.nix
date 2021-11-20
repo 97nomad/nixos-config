@@ -1,5 +1,5 @@
 {
-  description = "Best nix waifu";
+  description = "Best nix waifus";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-21.05";
@@ -25,7 +25,7 @@
     secrets.flake = false;
   };
 
-  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, nixpkgs-unstable, secrets, blender-bin, nix-doom-emacs, tg-scrum-poker, ... }:
+  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, nixpkgs-unstable, secrets, blender-bin, nix-doom-emacs, ... }:
     let
       inherit (nixpkgs) lib;
       system = "x86_64-linux";
