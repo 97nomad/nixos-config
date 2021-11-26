@@ -79,20 +79,10 @@ in
       };
     };
 
-    fish = {
-      enable = true;
-      promptInit = ''
-        any-nix-shell fish --info-right | source
-      '';
-      functions = {
-        fish_greeting = "echo 'Welcome home, mistress'";
-      };
-    };
-
     direnv = {
       enable = true;
       nix-direnv.enable = true;
-      enableFishIntegration = true;
+      enableZshIntegration = true;
     };
 
     vscode = {

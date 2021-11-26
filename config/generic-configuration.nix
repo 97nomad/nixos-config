@@ -39,35 +39,9 @@
     killall lsof htop
   ];
 
-  ## Shells
-  environment.shells = with pkgs; [
-    fish
-  ];
-
-  ## Bluetooth
-  services.blueman.enable = true;
-  hardware.bluetooth = {
-    enable = true;
-    package = pkgs.bluezFull;
-  };
-
-  ## Screen brightness
-  programs.light.enable = true;
-  services.actkbd = {
-    enable = true;
-    bindings = [
-      { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 10"; }
-      { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
-    ];
-  };
-
   ## Misc
   services.openssh.enable = true;
-  environment.variables.MOZ_USE_XINPUT2 = "1";
-  programs.dconf.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  services.gnome.at-spi2-core.enable = true;
 
   ## System version
-  system.stateVersion = "20.09";
+  system.stateVersion = "21.11";
 }

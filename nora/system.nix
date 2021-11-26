@@ -129,8 +129,24 @@
     ];
   };
 
+  ## Bluetooth
+  services.blueman.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    package = pkgs.bluezFull;
+  };
+
+  ## Screen brightness
+  programs.light.enable = true;
+  services.actkbd = {
+    enable = true;
+    bindings = [
+      { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 10"; }
+      { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
+    ];
+  };
+
   ## Users
-  users.defaultUserShell = pkgs.fish;
   users.users.nommy = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "adbusers" "plugdev" "nitrokey" "jackaudio" "docker" "plugdev" "dialout" "bluetooth" ];
@@ -139,6 +155,10 @@
   ## Misc
   hardware.nitrokey.enable = true;
   programs.steam.enable = true;
+  environment.variables.MOZ_USE_XINPUT2 = "1";
+  programs.dconf.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  services.gnome.at-spi2-core.enable = true;
 
   ## Power management
   ### Disable upower and systemd handlers and let acpid rule them all

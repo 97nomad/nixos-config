@@ -2,10 +2,10 @@
   description = "Best nix waifus";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-21.05";
+    nixpkgs.url = "github:nixos/nixpkgs/release-21.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    home-manager.url = "github:nix-community/home-manager/release-21.05";
+    home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-doom-emacs.url = "github:vlaci/nix-doom-emacs/master";
@@ -56,6 +56,7 @@
         nixosConfigurations = {
           nora = buildSystem [
             ./config/generic-configuration.nix
+            ./config/zsh.nix
             ./config/sway/system.nix
             ./nora/system.nix
             ./nora/hardware.nix
@@ -65,6 +66,7 @@
 
           hanekawa = buildSystem [
             ./config/generic-configuration.nix
+            ./config/zsh.nix
             ./hanekawa/system.nix
             ./hanekawa/hardware.nix
             ./hanekawa/home.nix
@@ -72,6 +74,7 @@
 
           naota = buildSystem [
             ./config/generic-configuration.nix
+            ./config/zsh.nix
             ./naota/system.nix
             ./naota/hardware.nix
             "${secrets}/naota.nix"
@@ -79,11 +82,13 @@
           ];
 
           vespa = armBuildSystem [
+            ./config/zsh.nix
             ./vespa/configuration.nix
             ./vespa/hardware-configuration.nix
           ];
 
           senku = armBuildSystem [
+            ./config/zsh.nix
             ./senku/configuration.nix
             ./senku/hardware-configuration.nix
           ];

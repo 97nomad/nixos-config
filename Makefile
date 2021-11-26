@@ -9,13 +9,13 @@ build:
 	sudo nixos-rebuild --flake ".#" switch -v -L
 
 naota:
-	nixos-rebuild --flake ".#naota" --target-host $(NAOTA_HOST) --build-host localhost switch
+	nixos-rebuild --flake ".#naota" --target-host $(NAOTA_HOST) --build-host localhost switch -L
 
 vespa:
-	nixos-rebuild --flake ".#vespa" --target-host ${VESPA_HOST} --build-host localhost switch
+	nixos-rebuild --flake ".#vespa" --target-host ${VESPA_HOST} --build-host localhost switch -L
 
 senku:
-	nixos-rebuild --flake ".#senku" --target-host ${SENKU_HOST} --build-host localhost switch
+	nixos-rebuild --flake ".#senku" --target-host ${SENKU_HOST} --build-host localhost switch -L
 
 system-gc:
 	nix-collect-garbage

@@ -40,13 +40,6 @@ in
   };
   boot.kernel.sysctl."net.ipv6.conf.eth0.disable_ipv6" = true;
 
-  # Bluetooth
-  services.blueman.enable = false;
-  hardware.bluetooth = {
-    enable = true;
-    package = unstable.bluezFull;
-  };
-
   # Audio
   sound.enable = true;
   hardware.pulseaudio = {
@@ -64,7 +57,6 @@ in
     dtparam=audio=on
   '';
 
-
   # Time
   time.timeZone = "Europe/Moscow";
   services.ntp.enable = true;
@@ -80,15 +72,7 @@ in
     youtube-dl mopidy
   ];
 
-  programs.fish = {
-    enable = true;
-    shellInit = ''
-      set -g fish_greeting "It takes an idiot to do cool things. That's why it's cool."
-    '';
-  };
-
   # Users
-  users.defaultUserShell = pkgs.fish;
   users.users.root.extraGroups = [ "audio" ];
   users.users.mopidy.extraGroups = [ "audio" "nextcloud" ];
   users.users.nommy = {
@@ -108,7 +92,8 @@ in
    \ \/ / |  __|  \___ \|  ___/ /\ \  
     \  /  | |____ ____) | |  / ____ \ 
      \/   |______|_____/|_| /_/    \_\
-                                                                            
+
+It takes an idiot to do cool things. That's why it's cool.
   '';
 
   # Nextcloud
@@ -145,7 +130,7 @@ in
       dbuser = "nextcloud";
       dbhost = "/run/postgresql";
       dbname = "nextcloud";
-      adminpass = secrets.nextcloud.adminpass;
+      adminpassFile = "/etc/nixos/secrets/nextcloud-adminpass";
       adminuser = secrets.nextcloud.adminuser;
       overwriteProtocol = "https";
     };
@@ -232,37 +217,32 @@ in
   };
   systemd.services.mopidy.environment."XDG_RUNTIME_DIR" = "/run/user/${toString config.users.users.mopidy.uid}";
 
-  ## MPRIS proxy for bluetooth
-  #systemd.services.mpris-proxy = {
-  #  Unit.Description = "Mpris proxy";
-  #  Unit.After = [ "network.target" "sound.target" ];
-  #  Service.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
-  #  Install.WantedBy = [ "default.target" ];
-  #};
-
   ## Home Assistant
   services.mosquitto = {
     enable = true;
-    host = "0.0.0.0";
-    checkPasswords = true;
-    users = {
-      glados = {
-        acl = [ "topic readwrite valetudo/#" "topic readwrite homeassistant/#" ];
-        password = secrets.mqtt.glados;
-      };
-      hass = {
-        acl = [ "topic readwrite #" ];
-        password = secrets.mqtt.hass;
-      };
-      aircontrol = {
-        acl = [ "topic readwrite aircontrol/#" "topic readwrite homeassistant/#" ];
-        password = secrets.mqtt.aircontrol;
-      };
-      sagiri = {
-        acl = [ "topic readwrite sagiri/#" "topic readwrite homeassistant/#" ];
-        password = secrets.mqtt.sagiri;
-      };
-    };
+    listeners = [
+      {
+        address = "0.0.0.0";
+        users = {
+          glados = {
+            acl = [ "topic readwrite valetudo/#" "topic readwrite homeassistant/#" ];
+            password = secrets.mqtt.glados;
+          };
+          hass = {
+            acl = [ "topic readwrite #" ];
+            password = secrets.mqtt.hass;
+          };
+          aircontrol = {
+            acl = [ "topic readwrite aircontrol/#" "topic readwrite homeassistant/#" ];
+            password = secrets.mqtt.aircontrol;
+          };
+          sagiri = {
+            acl = [ "topic readwrite sagiri/#" "topic readwrite homeassistant/#" ];
+            password = secrets.mqtt.sagiri;
+          };
+        };
+      }
+    ];
   };
 
   services.home-assistant = {
@@ -284,6 +264,9 @@ in
         use_x_forwarded_for = true;
         trusted_proxies = [ "127.0.0.1" "::1" ];
       };
+      stream = {
+        ll_hls = true;
+      };
       homeassistant = {
         name = "Home";
         unit_system = "metric";
@@ -293,12 +276,12 @@ in
       recorder = {
         db_url = "postgresql://@/hass";
         include = {
-          domains = [ "sensor" ];
+          domains = [ "sensor" "switch" "binary_sensor" ];
         };
       };
       history = {
         include = {
-          domains = [ "sensor" ];
+          domains = [ "sensor" "switch" "binary_sensor" ];
         };
       };
 
@@ -352,8 +335,7 @@ in
           still_image_url = "https://sagiri/cgi-bin/currentpic.cgi";
           stream_source = "rtsp://sagiri:8554/unicast";
           verify_ssl = false;
-          scan_interval = 5;
-          framerate = 15;
+          framerate = 25;
         }
       ];
     };

@@ -226,16 +226,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1637019201,
-        "narHash": "sha256-lq4gz51fx4m5FXfx1SCB444aEBeaYtLMVm3P18Wi9ls=",
+        "lastModified": 1637516270,
+        "narHash": "sha256-qTffAQ0kWA2qXMJUVMDsgXVbzMNI0BfR78vB/4QFA+o=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "bcf03fa16a1f06b8a0abb27bf49afa8d6fffe8f1",
+        "rev": "15ae861e1bfad90e0d14106551544e9e07cbcb10",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-21.05",
+        "ref": "release-21.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -296,11 +296,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1637242070,
-        "narHash": "sha256-/XCFGOriSpAgo0lPxVK12vFBpta567kwfHZr5tNNHyE=",
+        "lastModified": 1637564544,
+        "narHash": "sha256-wwdjkfdQEbFn+Gr1iBiA5DGgl+Q7PASL83Swo/Wqwy0=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "5a7e613703ea349fd46b3fa2f3dfe3bd5444d591",
+        "rev": "08cda8e3a5a4e685af525e5a589dfeb74267d505",
         "type": "github"
       },
       "original": {
@@ -325,11 +325,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1637155076,
-        "narHash": "sha256-26ZPNiuzlsnXpt55Q44+yzXvp385aNAfevzVEKbrU5Q=",
+        "lastModified": 1637753138,
+        "narHash": "sha256-yo7E4a/miP77fH3Ksp9tmYECAPjxBeweJFeZ4tX9O/U=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "715f63411952c86c8f57ab9e3e3cb866a015b5f2",
+        "rev": "39cb89ef2ffcbef8d2ac2d52267ac69121a6becb",
         "type": "github"
       },
       "original": {
@@ -356,16 +356,16 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1637359466,
-        "narHash": "sha256-8SHDPGIg595kr1tZxG6DzVhq7TOJYDBOXVL2wDc2c8Q=",
+        "lastModified": 1637824204,
+        "narHash": "sha256-u+kpf0YLxLKdWc+YW5iRhGGHvetRnAIVfTsHU9cVdZg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "7e653e021738a4f79545bedfb677cc4411f557a1",
+        "rev": "9ef5252db89fb9b9f7bab1e98cca5f07414e4569",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "release-21.05",
+        "ref": "release-21.11",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -563,11 +563,11 @@
     "valetudoMapCard": {
       "flake": false,
       "locked": {
-        "lastModified": 1628784594,
-        "narHash": "sha256-PIv9wVqlj4SH+/dUev1YssYB/rZ8SB8CNiB/n6OIeiQ=",
+        "lastModified": 1637533156,
+        "narHash": "sha256-ULDS3g7YGA4QiezPBf45FYAGHLOV5uh6kTQIhLIhHb8=",
         "owner": "TheLastProject",
         "repo": "lovelace-valetudo-map-card",
-        "rev": "64674444ccb48c17d5febdf91761caed867bdc27",
+        "rev": "ff234ece0290c47473c30b809367f146bfe54270",
         "type": "github"
       },
       "original": {

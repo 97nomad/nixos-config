@@ -22,12 +22,28 @@
     };
   };
 
+  ## Bluetooth
+  services.blueman.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    package = pkgs.bluezFull;
+  };
+
+  ## Screen brightness
+  programs.light.enable = true;
+  services.actkbd = {
+    enable = true;
+    bindings = [
+      { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 10"; }
+      { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
+    ];
+  };
+
   ## Extra packages
   environment.systemPackages = with pkgs; [
     wireshark
   ];
 
-  users.defaultUserShell = pkgs.fish;
   users.users.nommy = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "docker" "plugdev" "wireshark" ];
@@ -85,9 +101,13 @@
   };
 
 
+  ## Misc
   services.elasticsearch.enable = true;
   virtualisation.docker = {
     enable = true;
     enableOnBoot = false;
   };
+  programs.dconf.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  services.gnome.at-spi2-core.enable = true;
 }

@@ -165,21 +165,16 @@ in
       };
     };
 
-    fish = {
-      enable = true;
-      promptInit = ''
-        any-nix-shell fish --info-right | source
-      '';
-      functions = {
-        fish_greeting = "echo 'Welcome home, mistress'";
-      };
-    };
-
     direnv = {
       enable = true;
       nix-direnv.enable = true;
-      nix-direnv.enableFlakes = true;
       enableFishIntegration = true;
+      enableZshIntegration = true;
+    };
+
+    nix-index = {
+      enable = true;
+      enableZshIntegration = true;
     };
 
     vscode = {
@@ -189,7 +184,7 @@ in
         "[nix]"."editor.tabSize" = 2;
       };
       extensions = [
-        pkgs.vscode-extensions.bbenoist.Nix
+        pkgs.vscode-extensions.bbenoist.nix
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "nix-env-selector";
@@ -209,12 +204,12 @@ in
           version = "0.2.2";
           sha256 = "3f5f3632f6c7401cd75a121fa7a004eb5ce3bb14e2980470a3c8711dac302d4a";
         }
-        {
-          name = "rust";
-          publisher = "rust-lang";
-          version = "0.7.0";
-          sha256 = "40f3b9200e66ad8a3a727de17538e6ce16d137f614ec6e3232ca49f9d441c79a";
-        }
+#        {
+#          name = "rust";
+#          publisher = "rust-lang";
+#          version = "0.7.0";
+#          sha256 = "40f3b9200e66ad8a3a727de17538e6ce16d137f614ec6e3232ca49f9d441c79a";
+#        }
       ];
     };
 
