@@ -13,15 +13,6 @@
   ## Network
   networking.hostName = "hanekawa";
 
-  ## Sound
-  sound.enable = true;
-  hardware = {
-    pulseaudio = {
-      enable = true;
-      package = pkgs.pulseaudioFull;
-    };
-  };
-
   ## Bluetooth
   services.blueman.enable = true;
   hardware.bluetooth = {

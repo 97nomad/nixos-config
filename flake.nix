@@ -57,6 +57,7 @@
           nora = buildSystem [
             ./config/generic-configuration.nix
             ./config/zsh.nix
+            ./config/pipewire.nix
             ./config/sway/system.nix
             ./nora/system.nix
             ./nora/hardware.nix
@@ -67,6 +68,7 @@
           hanekawa = buildSystem [
             ./config/generic-configuration.nix
             ./config/zsh.nix
+            ./config/pipewire.nix
             ./hanekawa/system.nix
             ./hanekawa/hardware.nix
             ./hanekawa/home.nix
