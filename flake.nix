@@ -8,8 +8,7 @@
     home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-doom-emacs.url = "github:vlaci/nix-doom-emacs/master";
-
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs/master";
     tg-scrum-poker.url = "github:97nomad/TgScrumPoker";
 
     waveform.url = "path:packages/waveform";
