@@ -114,14 +114,7 @@
   services.gnome.at-spi2-core.enable = true;
 
   ## Power management
-  ### Disable upower and systemd handlers and let acpid rule them all
-  services = {
-    acpid = {
-      enable = true;
-      lidEventCommands = "systemctl suspend";
-    };
-    logind.lidSwitch = "ignore";
-  };
+  services.logind.lidSwitch = "suspend";
 
   ## udev
   services.udev.packages = [
@@ -146,18 +139,6 @@
       touchpad = {
         naturalScrolling = true;
         disableWhileTyping = true;
-      };
-    };
-
-    displayManager.lightdm = {
-      enable = true;
-      background = "/usr/share/wallpaper.png";
-      greeter.enable = true;
-      greeters.gtk = {
-        iconTheme.package = pkgs.paper-icon-theme;
-        iconTheme.name = "Paper";
-        theme.package = pkgs.adapta-gtk-theme;
-        theme.name = "Adapta-Nokto-Eta";
       };
     };
   };

@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 rec {
   modifier = "Mod4";
   modes = {};
@@ -20,7 +20,33 @@ rec {
 
   startup =
     let
-      lock = "swaylock -i /usr/share/wallpaper.png -s fill -F";
+      lockScript = pkgs.writeShellScriptBin "sway-custom-lock" ''
+        ${pkgs.swaylock-effects}/bin/swaylock \
+        -f -i /usr/share/wallpaper.png -s fill \
+        --clock \
+        --effect-vignette 0.5:0.5 \
+        --effect-blur 7x5 \
+        --indicator \
+        --indicator-radius 100 \
+        --indicator-thickness 7 \
+        --ring-color 455a64 \
+        --ring-wrong-color c92c1e \
+        --ring-ver-color 5046bf \
+        --ring-clear-color 46bf50 \
+        --key-hl-color be5046 \
+        --text-color ffc107 \
+        --text-clear-color ffc107 \
+        --text-ver-color ffc107 \
+        --text-wrong-color ffc107 \
+        --line-uses-ring \
+        --inside-color 00000088 \
+        --inside-clear-color 00000088 \
+        --inside-ver-color 00000088 \
+        --inside-wrong-color 00000088 \
+        --separator-color 00000000 \
+        --fade-in 0.2
+      '';
+      lock = "${lockScript}/bin/sway-custom-lock";
     in
     [
       { command = "mako"; }

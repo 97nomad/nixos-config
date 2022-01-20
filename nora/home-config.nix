@@ -229,7 +229,10 @@ in
 
     blueman-applet.enable = true;
 
-    nextcloud-client.enable = true;
+    nextcloud-client = {
+      enable = true;
+      startInBackground = true;
+    };
 
     kdeconnect = {
       enable = true;

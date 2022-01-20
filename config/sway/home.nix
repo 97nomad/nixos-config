@@ -3,28 +3,38 @@ args @ { config, lib, pkgs, ... }:
 {
   home = {
     packages = with pkgs; [
-      swaylock
+      swaylock-effects
       swayidle
       wl-clipboard
       mako
       grim
       slurp
     ];
+  };
 
-    sessionVariables = {
-      SDL_VIDEODRIVER = "wayland";
-      MOZ_ENABLE_WAYLAND = "1";
+  systemd.user.sessionVariables = config.home.sessionVariables;
 
-      DESKTOP_SESSION = "sway";
-      GTK_BACKEND = "wayland";
-      XDG_CURRENT_DESKTOP = "sway";
-      XDG_SESSION_TYPE = "sway";
+  home.sessionVariables = {
+    # for some reason it doesn't want to read anything else
+    SDL_VIDEODRIVER = "wayland";
 
-      QT_WAYLAND_DISABLE_DECORATION = "1";
+    # self-descriptive
+    MOZ_ENABLE_WAYLAND = "1";
 
-      # Fixing java apps (especially idea)
-      _JAVA_AWT_WM_NONREPARENTING = "1";
-    };
+    # actually I'm sure it's set somewhere else too
+    DESKTOP_SESSION = "sway";
+    GTK_BACKEND = "wayland";
+    XDG_CURRENT_DESKTOP = "sway";
+    XDG_SESSION_TYPE = "sway";
+
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+
+    # Fixing java apps (especially idea)
+    _JAVA_AWT_WM_NONREPARENTING = "1";
+
+    # Some wlr variables, https://gitlab.freedesktop.org/wlroots/wlroots/-/blob/master/docs/env_vars.md
+    # WLR_DRM_NO_MODIFIERS = "1";
+    #
   };
 
   programs = {
